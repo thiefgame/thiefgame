@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //スコアをメモする変数を宣言する
+    int score = 0;
 
-    // Update is called once per frame
-    void Update()
+    //メッセージを受け取る
+    void OnScore(int num)
     {
-        
+        //scoreに受け取った値を追加する
+        score += num;
+
+        //Textコンポーネントを取得する
+        Text Score = gameObject.GetComponent<Text>();
+
+        //scoreをテキストとして表示する
+        Score.text = score.ToString();
     }
 }
