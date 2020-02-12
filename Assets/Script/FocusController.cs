@@ -5,21 +5,31 @@ using UnityEngine;
 public class FocusController : MonoBehaviour
 {
     public GameObject mainCamera;              //メインカメラ格納用
-    public GameObject playerObject;            //回転の中心となるプレイヤー格納用
+    public GameObject toggle;            //回転の中心となるプレイヤー格納用
     public GameObject lookPoint;
     public float rotateSpeed = 2.0f;            //回転の速さ
+
+    private Vector3 firstCamPos;
+    private Vector3 firstLookPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
+        firstCamPos = mainCamera.transform.position;
+        firstLookPos = lookPoint.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         //rotateCameraの呼び出し
-        MoveFocus();
+        if (Input.GetMouseButton(1))
+        {
+            MoveFocus();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R)) { ResetFocus(); }
     }
 
     //カメラを回転させる関数
@@ -27,16 +37,27 @@ public class FocusController : MonoBehaviour
     {
         //Vector3でX,Y方向の回転の度合いを定義
         Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * rotateSpeed, Input.GetAxis("Mouse Y") * rotateSpeed, 0);
+        toggle.transform.Rotate(0, angle.x, 0);
+        //視点とカメラを回転させる(縦)
+        lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.up, angle.x);
+        mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.up, angle.x);
+        Debug.Log("" + mainCamera.transform.rotation.x);
 
-        //transform.RotateAround()をしようしてメインカメラを回転させる
-        lookPoint.transform.RotateAround(playerObject.transform.position, Vector3.up, angle.x);
-        lookPoint.transform.RotateAround(playerObject.transform.position, Vector3.right, -angle.y);
-
-        mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.up, angle.x);
-        mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.right, -angle.y);
+        //視点とカメラを回転させる(横)
+        lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
+        mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
 
         mainCamera.transform.LookAt(lookPoint.transform);
     
         //mainCamera.transform.eulerAngles += new Vector3(-angle.y, angle.x);
+    }
+
+    //視点リセット
+    private void ResetFocus()
+    {
+        lookPoint.transform.position = firstLookPos;
+        lookPoint.transform.rotation = Quaternion.identity;
+        mainCamera.transform.position = firstCamPos;
+        mainCamera.transform.LookAt(lookPoint.transform);
     }
 }
