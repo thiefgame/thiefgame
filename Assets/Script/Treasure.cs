@@ -6,6 +6,7 @@ public class Treasure : MonoBehaviour
 {
     GameObject clickedGameObject;
     public int value;
+
     public string tresureName;
     //public Scorebord scorebord;
     // Start is called before the first frame update
