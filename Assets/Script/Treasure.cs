@@ -32,6 +32,8 @@ public class Treasure : MonoBehaviour
             {
 
                 clickedGameObject = hit.collider.gameObject;
+                GameObject scoreTextGo = GameObject.Find("Score");
+            scoreTextGo.SendMessage("OnScore", value);
                 
                 this.gameObject.SetActive(false);
             }
@@ -40,9 +42,15 @@ public class Treasure : MonoBehaviour
         }
     }
 
-    void UpdateScore(int score)
+    /*
+    private void OnTriggerStay(Collider other)
     {
-        score = score + value;
-        return;
+        if (Input.GetMouseButtonDown(1))
+        {
+            GameObject scoreTextGo = GameObject.Find("Score");
+            scoreTextGo.SendMessage(tresureName, value);
+            this.gameObject.SetActive(false);
+        }
     }
+    */
 }
