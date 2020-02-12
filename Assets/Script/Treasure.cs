@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Treasure : MonoBehaviour
 {
-    GameObject clickedGameObject;
     public int value;
     public string tresureName;
 
-
+    /*
+    //実験用（クリックしただけで反応する）
     public void Update()
     {
         //クリックされたとき
@@ -21,20 +21,23 @@ public class Treasure : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-    
-    /*
-    public void OnTriggerStay(Collision other)
+    */
+
+    //プレイヤーが金品に近づいてるときにクリックすると反応
+    void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+
+        if (other.gameObject.tag == "Player")
         {
-            if (Input.GetMouseButtonDown(1))
+            //クリックされたとき
+            if (Input.GetMouseButtonDown(0))
             {
+                //オブジェクトScoreを取得してvalueの値を送る
                 GameObject scoreTextGo = GameObject.Find("Score");
-                scoreTextGo.SendMessage(tresureName, value);
+                scoreTextGo.SendMessage("OnScore", value);
                 this.gameObject.SetActive(false);
             }
         }
-        
     }
-    */
+
 }
