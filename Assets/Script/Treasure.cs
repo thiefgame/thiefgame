@@ -1,13 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;//UIをスクリプトから動かせるように追加する
 
 public class Treasure : MonoBehaviour
 {
     public int value;
     public string tresureName;
-    //public GameObject ItemMessage;
+    public GameObject ItemMessage;
+    AudioSource AitemGetSound;
 
+
+    public void Start()
+    {
+        AitemGetSound = GetComponent<AudioSource>();
+
+        GameObject target1 = GameObject.Find("ItemName");
+
+        Transform target2 = target1.transform.Find("ChangeText");
+
+        GameObject.Find("ItemName").transform.Find("ChangeText").gameObject.SetActive(false);
+    }
 
     //実験用（クリックしただけで反応する）
     public void Update()
@@ -15,13 +28,20 @@ public class Treasure : MonoBehaviour
         //クリックされたとき
         if (Input.GetMouseButtonDown(0))
         {
+            GameObject.Find("ItemName").transform.Find("ChangeText").gameObject.SetActive(true);
+
             //オブジェクトScoreを取得してvalueの値を送る
             GameObject scoreTextGo = GameObject.Find("Score");
             scoreTextGo.SendMessage("OnScore", value);
+
+            //オブジェクトChangeTextを取得してtresureNameの値を送る
             GameObject ChangeTextTextGo = GameObject.Find("ChangeText");
             ChangeTextTextGo.SendMessage("OnItemName", tresureName);
             StartCoroutine("ItemDetail");
-            this.gameObject.SetActive(false);
+
+            //サウンド再生
+            AitemGetSound.Play();
+
         }
     }
 
@@ -48,9 +68,13 @@ public class Treasure : MonoBehaviour
         GameObject target1 = GameObject.Find("ItemName");
 
         Transform target2 = target1.transform.Find("ChangeText");
-    
+
+        GameObject.Find("ItemName").transform.Find("ChangeText").gameObject.SetActive(true);
+
         yield return new WaitForSeconds(2.0f);
-        target1.transform.Find("ChangeText").SetActive(true);
+
+        GameObject.Find("ItemName").transform.Find("ChangeText").gameObject.SetActive(false);
+
     }
 
 }
