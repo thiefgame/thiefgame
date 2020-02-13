@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestCube : MonoBehaviour
+public class TextPopUp : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -11,10 +11,8 @@ public class TestCube : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        this.transform.position += new Vector3(x, y);
+        
     }
 }
