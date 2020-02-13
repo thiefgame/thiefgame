@@ -9,6 +9,8 @@ public class Treasure : MonoBehaviour
     public string tresureName;
     public GameObject ItemMessage;
     AudioSource AitemGetSound;
+    public AudioClip sound1;
+    public AudioClip sound2;
 
 
     public void Start()
@@ -33,14 +35,13 @@ public class Treasure : MonoBehaviour
             //オブジェクトScoreを取得してvalueの値を送る
             GameObject scoreTextGo = GameObject.Find("Score");
             scoreTextGo.SendMessage("OnScore", value);
-
             //オブジェクトChangeTextを取得してtresureNameの値を送る
             GameObject ChangeTextTextGo = GameObject.Find("ChangeText");
             ChangeTextTextGo.SendMessage("OnItemName", tresureName);
             StartCoroutine("ItemDetail");
 
             //サウンド再生
-            AitemGetSound.Play();
+            StartCoroutine("ItemGet");
 
         }
     }
@@ -77,5 +78,12 @@ public class Treasure : MonoBehaviour
 
 
     }
+    private IEnumerator ItemGet()
+    {
+        AitemGetSound.PlayOneShot(sound1);
+        yield return new WaitForSeconds(1.0f);
+        AitemGetSound.PlayOneShot(sound2);
+    }
 
-}
+
+    }
