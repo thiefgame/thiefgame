@@ -50,7 +50,6 @@ public class Treasure : MonoBehaviour
     //プレイヤーが金品に近づいてるときにクリックすると反応
     /*void OnTriggerStay(Collider other)
     {
-
         if (other.gameObject.tag == "Player")
         {
             //クリックされたとき
@@ -74,7 +73,9 @@ public class Treasure : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
+
         GameObject.Find("ItemName").transform.Find("ChangeText").gameObject.SetActive(false);
+
 
     }
     private IEnumerator ItemGet()
