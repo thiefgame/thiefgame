@@ -18,6 +18,6 @@ public class ScoreScript : MonoBehaviour
         Text Score = gameObject.GetComponent<Text>();
 
         //scoreをテキストとして表示する
-        Score.text = score.ToString();
+        Score.text = "Score:"+ score.ToString()+"円";
     }
 }
