@@ -26,7 +26,6 @@ public class Treasure : MonoBehaviour
     //プレイヤーが金品に近づいてるときにクリックすると反応
     void OnTriggerStay(Collider other)
     {
-
         if (other.gameObject.tag == "Player")
         {
             //クリックされたとき
