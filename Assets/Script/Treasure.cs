@@ -49,7 +49,7 @@ public class Treasure : MonoBehaviour
         Transform target2 = target1.transform.Find("ChangeText");
     
         yield return new WaitForSeconds(2.0f);
-        target1.transform.Find("ChangeText").SetActive(true);
+        //target1.transform.Find("ChangeText").SetActive(true);
     }
 
 }

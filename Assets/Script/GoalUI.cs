@@ -5,27 +5,26 @@ using UnityEngine;
 public class GoalUI : MonoBehaviour
 {
     [SerializeField] GameObject GoalButton;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+  
+    //プレイヤーがゴール地点に入ったとき
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+            //クリックしたときゴールボタンを表示して時を止める（FixedUpdateメソッドのみ）
             if (Input.GetMouseButtonDown(0))
             {
                 GoalButton.SetActive(true);
+                Time.timeScale = 0f;
             }
         }
+    }
+
+    //コンティニューボタンを押したとき
+    public void OnClickContinue()
+    {
+        //ポーズを解除してボタンを非表示
+        GoalButton.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
