@@ -15,6 +15,7 @@ public class FocusController : MonoBehaviour
     private Vector3 firstCamPos;
     private Vector3 firstLookPos;
     private Vector3 lastTogglePos;
+    private Vector3 CameraWantToBe;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +24,13 @@ public class FocusController : MonoBehaviour
         lastTogglePos = toggle.transform.position;
         firstCamPos = lastTogglePos - mainCamera.transform.position;
         firstLookPos = lastTogglePos - lookPoint.transform.position;
+        CameraWantToBe = mainCamera.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //トグルが動いた場合、注視点とカメラも同じだけ動かす
         Vector3 toggleMovement = toggle.transform.position - lastTogglePos;
         if (toggleMovement != Vector3.zero)
         {
@@ -35,15 +38,24 @@ public class FocusController : MonoBehaviour
             lookPoint.transform.position += toggleMovement;
         }
 
-        //rotateCameraの呼び出し
+        //右クリック時のみカメラの操作
         if (Input.GetMouseButton(1))
         {
             MoveFocus();
         }
 
         if (Input.GetKeyDown(KeyCode.R)) { ResetFocus(); }
-        //else { ChasePlayer(); }
 
+        //カメラとトグルの間に障害物があるか検出
+        RaycastHit hit;
+        if(Physics.Raycast(mainCamera.transform.position,mainCamera.transform.forward,out hit, Mathf.Infinity))
+        {
+            Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * hit.distance, Color.green);
+            Debug.Log("HIT:" + hit.collider.ToString());
+        }
+        else { Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * 1000, Color.red); }
+
+        //トグルの位置履歴を更新
         lastTogglePos = toggle.transform.position;
     }
 
@@ -85,21 +97,9 @@ public class FocusController : MonoBehaviour
     //視点リセット
     private void ResetFocus()
     {
-        //toggle.transform.rotation = Quaternion.Euler(player.transform.forward);
-        /*lookPoint.transform.position = toggle.transform.position - Vector3.Scale(firstLookPos, player.transform.forward.normalized);
-        lookPoint.transform.rotation = Quaternion.identity;
-        mainCamera.transform.position = toggle.transform.position - Vector3.Scale(firstCamPos, player.transform.forward.normalized);*/
         lookPoint.transform.position = toggle.transform.position - firstLookPos.magnitude * -player.transform.forward.normalized;
         lookPoint.transform.rotation = Quaternion.identity;
         mainCamera.transform.position = toggle.transform.position - firstCamPos.magnitude * player.transform.forward.normalized;
         mainCamera.transform.LookAt(lookPoint.transform);
-    }
-
-    private void ChasePlayer()
-    {
-        lookPoint.transform.position = toggle.transform.position - Vector3.Scale(firstLookPos, mainCamera.transform.forward.normalized);
-        lookPoint.transform.rotation = Quaternion.identity;
-        mainCamera.transform.position = toggle.transform.position - Vector3.Scale(firstCamPos, mainCamera.transform.forward.normalized);
-        //mainCamera.transform.LookAt(lookPoint.transform);
     }
 }
