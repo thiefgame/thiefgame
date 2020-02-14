@@ -1,29 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    private List<string> treasureList = new List<string>();
+    [SerializeField] GameObject Node;
+    [SerializeField] GameObject Content;
+    [SerializeField] GameObject Ctext;
+    GameObject Obj;
+    GameObject textObj;
+    [SerializeField] GameObject ScrollView;
 
+    string ItemName;
+    int ItemValue =100;
 
-    void OnItemName(string Item)
+    void GetItemValue(int a)
     {
-        treasureList.Add(Item);
+        ItemValue = a;
     }
 
-    // Update is called once per frame
+    void GetItemName(string b)
+    {
+        ItemName = b;
+
+        //Textコンポーネントを取得する
+        Text ChangeText = Ctext.GetComponent<Text>();
+
+        //scoreをテキストとして表示する
+        ChangeText.text = ItemName +"  " + ItemValue +"円";
+
+        //Contentの子としてNodeを生成する
+        Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
+        Obj.transform.parent = Content.transform;
+
+        //Nodeの子としてtextを生成する
+        textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
+        textObj.transform.parent = Obj.transform;
+
+    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
         {
+
             Time.timeScale = 0f;
+
+            ScrollView.SetActive(true);           
         }
 
-        if (Input.GetKey(KeyCode.P))
-        {
-            Time.timeScale = 1f;
-        }
     }
+
+    public void OnClickResumeButton()
+    {
+        Time.timeScale = 1f;
+
+        ScrollView.SetActive(false);
+    }
+
 }
