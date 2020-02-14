@@ -51,7 +51,7 @@ public class FocusController : MonoBehaviour
         if(Physics.Raycast(mainCamera.transform.position,mainCamera.transform.forward,out hit, Mathf.Infinity))
         {
             Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * hit.distance, Color.green);
-            Debug.Log("HIT:" + hit.collider.ToString());
+            //Debug.Log("HIT:" + hit.collider.ToString());
         }
         else { Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * 1000, Color.red); }
 
