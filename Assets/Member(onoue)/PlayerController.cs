@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
     {
         ground = true;Debug.Log("" + collision.gameObject.name);
         //ジャンプのアニメーションをオフにする
-        animator.SetBool("Jumping", false);
+        //animator.SetBool("Jumping", false);
     }
     //接地していないと作動
     private void OnCollisionExit(Collision collision)
