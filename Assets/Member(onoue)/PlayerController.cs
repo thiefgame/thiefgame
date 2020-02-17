@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     bool ground;
     Vector3 velocity;
 
+    Vector3 direction;
+
     /*///////////*/
     public GameObject mainCamera;
     /*///////////*/
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
                 rb.MovePosition(transform.position + mainCamera.transform.right.normalized * x + mainCamera.transform.forward * z);
 
                 //unityちゃんの最新の位置から少し前の位置を引いて方向を割り出す
-                Vector3 direction = transform.position - playerPos;
+                direction = transform.position - playerPos;
                 direction = new Vector3(direction.x, 0, direction.z);
 
                 //移動距離が少しでもあった場合に方向転換
