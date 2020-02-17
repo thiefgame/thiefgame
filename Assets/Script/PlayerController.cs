@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.CheckSphere(footPosition.transform.position, 0.1f, 1)) { ground = true; animator.SetBool("Jumping", false); }
+        if (Physics.CheckSphere(footPosition.transform.position, 0.1f, 1 )) { ground = true; animator.SetBool("Jumping", false); }
         else { ground = false; }
         if (ground)
         {
@@ -77,9 +77,9 @@ public class PlayerController : MonoBehaviour
             else { animator.SetBool("Running", false); }
 
             //スペースキーやパッドの３ボタンでジャンプ
-            if (Input.GetButtonDown("Jump") && !(animator.GetCurrentAnimatorStateInfo(0).IsName("Jumping")))
+            if (Input.GetButtonDown("Jump") && !(animator.GetCurrentAnimatorStateInfo(0).IsName("Jump")))
             {
-                Debug.Log("" + Input.GetButton("Jump") + ":" + Input.GetButtonDown("Jump"));
+                //Debug.Log("ボタン:" + Input.GetButtonDown("Jump") + "パラメータ:" + animator.GetBool("Jumping") + "モーション遷移:" + animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"));
                 //thrustの分だけ上方に力がかかる
                 rb.AddForce(transform.up * thrust + direction * thrust,ForceMode.Impulse);
                 /*/////////////////*/
@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Jumping")) { ground = true; }
         }*/
+        Debug.Log("Ground:" + ground);
     }
 
     //接地している間作動
