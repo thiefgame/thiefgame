@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     //移動速度
     public float speed = 3f;
     //ジャンプ力
-    public float thrust = 200;
+    public float thrust = 7f;
+    public GameObject footPosition;
     //Animatorを入れる変数
     private Animator animator;
     //unityちゃんの位置を入れる
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     //接地しているか否か
     bool ground;
     Vector3 velocity;
+    Vector3 direction;
 
     Vector3 direction;
 
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Physics.CheckSphere(footPosition.transform.position, 0.1f, 1)) { ground = true; animator.SetBool("Jumping", false); }
+        else { ground = false; }
         if (ground)
         {
             //AD←→で横移動
@@ -45,7 +49,7 @@ public class PlayerController : MonoBehaviour
             //WS↑↓で前後移動
             float z = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
 
-            if (x != 0 && z != 0)
+            if (x != 0 || z != 0)
             {
                 //入力に応じてunityちゃんを動かす
                 rb.MovePosition(transform.position + mainCamera.transform.right.normalized * x + mainCamera.transform.forward * z);
@@ -72,12 +76,14 @@ public class PlayerController : MonoBehaviour
                 //unityちゃんの位置を更新する
                 playerPos = transform.position;
             }
+            else { animator.SetBool("Running", false); }
 
             //スペースキーやパッドの３ボタンでジャンプ
-            if (Input.GetButton("Jump"))
+            if (Input.GetButtonDown("Jump") && !(animator.GetCurrentAnimatorStateInfo(0).IsName("Jumping")))
             {
+                Debug.Log("" + Input.GetButton("Jump") + ":" + Input.GetButtonDown("Jump"));
                 //thrustの分だけ上方に力がかかる
-                rb.AddForce(transform.up * thrust + direction * thrust);
+                rb.AddForce(transform.up * thrust + direction * thrust,ForceMode.Impulse);
                 /*/////////////////*/
                 animator.SetBool("Jumping", true);
                 ground = false;
@@ -100,14 +106,14 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Crouch", false);
             }
         }
-        else
+        /*else
         {
             if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Jumping")) { ground = true; }
-        }
+        }*/
     }
 
     //接地している間作動
-    private void OnCollisionStay(Collision collision)
+  /*  private void OnCollisionStay(Collision collision)
     {
         ground = true;Debug.Log("" + collision.gameObject.name);
         //ジャンプのアニメーションをオフにする
@@ -119,5 +125,5 @@ public class PlayerController : MonoBehaviour
         ground = false;Debug.Log("Jumping");
         //ジャンプのアニメーションをonにする
         //animator.SetBool("Jumping", true);
-    }
+    }*/
 }
