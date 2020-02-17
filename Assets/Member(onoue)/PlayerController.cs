@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     Vector3 direction;
 
+    Vector3 direction;
+
     /*///////////*/
     public GameObject mainCamera;
     /*///////////*/
