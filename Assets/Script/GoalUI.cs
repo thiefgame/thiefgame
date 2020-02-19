@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalUI : MonoBehaviour
 {
@@ -26,5 +27,10 @@ public class GoalUI : MonoBehaviour
         //ポーズを解除してボタンを非表示
         GoalButton.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void OnClickEscape()
+    {
+        SceneManager.LoadScene("Result");
     }
 }
