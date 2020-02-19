@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
     //スコアをメモする変数を宣言する
-    int score = 0;
+    public static int score = 0;
     string ItemName;
+
+    public static int getScore()
+    {
+        return score;
+    }
 
     //取得アイテムと金額を格納する配列を宣言        
     public static List<string> itemList = new List<string>();

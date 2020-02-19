@@ -8,10 +8,12 @@ public class ResultController : MonoBehaviour
     [SerializeField] GameObject Content;
     [SerializeField] GameObject Ctext;
     GameObject Obj;
-    GameObject textObj;    
+    GameObject textObj;
+    
     //ScoreScriptから取得アイテムの名前と金額が格納された配列を受け取る
     List<string> itemList = ScoreScript.getitemList();
     List<int> scoreList = ScoreScript.getscoreList();
+
 
 
     private void Start()
@@ -32,6 +34,8 @@ public class ResultController : MonoBehaviour
                 textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
                 textObj.transform.parent = Obj.transform;
             }
+
+        
     }
 }
 
