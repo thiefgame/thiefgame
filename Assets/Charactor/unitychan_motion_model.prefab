@@ -2122,7 +2122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   toggle: {fileID: 6605733217946783693}
-  lookPoint: {fileID: 0}
+  lookPoint: {fileID: 8515101943234185723, guid: ebd24c3114c93f0459fe6d4354618e4e,
+    type: 3}
   player: {fileID: 2922178972180273631}
   rotateSpeed: 2
   lookUpLimit: 40
