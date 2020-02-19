@@ -9,6 +9,8 @@ public class Treasure : MonoBehaviour
     public string tresureName;
     [SerializeField] GameObject ItemName;
 
+   
+
     //プレイヤーが金品に近づいてるときにクリックすると反応
     void OnTriggerStay(Collider other)
     {
@@ -22,17 +24,21 @@ public class Treasure : MonoBehaviour
                 GameObject scoreTextGo = GameObject.Find("Score");
                 scoreTextGo.SendMessage("OnScore", value);
 
+                //オブジェクトScoreを取得してtresureNameの値を送る
+                GameObject scoreScriptTextGo = GameObject.Find("Score");
+                scoreScriptTextGo.SendMessage("OnItemName", tresureName);
+
                 //オブジェクトChangeTextを取得してtresureNameの値を送る
                 GameObject ChangeTextTextGo = GameObject.Find("ChangeText");
                 ChangeTextTextGo.SendMessage("OnItemName", tresureName);
 
-                //オブジェクトScoreを取得してvalueの値を送る
+                //オブジェクトPauseMenuを取得してvalueの値を送る
                 GameObject PauseMenuValueTextGo = GameObject.Find("PauseMenu");
                 PauseMenuValueTextGo.SendMessage("GetItemValue", value);               
 
                 //オブジェクトPauseMenuを取得してtresureNameの値を送る
                 GameObject PauseMenuTextGo = GameObject.Find("PauseMenu");
-                PauseMenuTextGo.SendMessage("GetItemName", tresureName);            
+                PauseMenuTextGo.SendMessage("GetItemName", tresureName);
 
                 //treasureオブジェクトを消す
                 this.gameObject.SetActive(false);
