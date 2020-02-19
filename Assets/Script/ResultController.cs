@@ -8,40 +8,31 @@ public class ResultController : MonoBehaviour
     [SerializeField] GameObject Content;
     [SerializeField] GameObject Ctext;
     GameObject Obj;
-    GameObject textObj;
+    GameObject textObj;    
+    //ScoreScriptから取得アイテムの名前と金額が格納された配列を受け取る
+    List<string> itemList = ScoreScript.getitemList();
+    List<int> scoreList = ScoreScript.getscoreList();
 
-    List<string> resultList = new List<string>();
 
-
-    void Start()
+    private void Start()
     {
-        DontDestroyOnLoad(this);
+            for (int i = 0; i < itemList.Count; i++)
+            {
+                //Textコンポーネントを取得する
+                Text ChangeText = Ctext.GetComponent<Text>();
 
-        for (int i = 0; i < resultList.Count; i++)
-        {
-            //Textコンポーネントを取得する
-            Text ChangeText = Ctext.GetComponent<Text>();
+                //scoreをテキストとして表示する
+                ChangeText.text = itemList[i] +" "+ scoreList[i] + "円";
 
-            //scoreをテキストとして表示する
-            ChangeText.text = resultList[i];
+                //Contentの子としてNodeを生成する
+                Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
+                Obj.transform.parent = Content.transform;
 
-            //Contentの子としてNodeを生成する
-            Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
-            Obj.transform.parent = Content.transform;
-
-            //Nodeの子としてtextを生成する
-            textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
-            textObj.transform.parent = Obj.transform;
-        }
+                //Nodeの子としてtextを生成する
+                textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
+                textObj.transform.parent = Obj.transform;
+            }
     }
-
-
-    void GetItemName(string ItemName)
-    {
-        resultList.Add(ItemName);
-    }
-
-
-
-
 }
+
+
