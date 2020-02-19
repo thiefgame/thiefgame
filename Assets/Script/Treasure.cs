@@ -26,7 +26,7 @@ public class Treasure : MonoBehaviour
                 GameObject ChangeTextTextGo = GameObject.Find("ChangeText");
                 ChangeTextTextGo.SendMessage("OnItemName", tresureName);
 
-                //オブジェクトScoreを取得してvalueの値を送る
+                //オブジェクトPauseMenuを取得してvalueの値を送る
                 GameObject PauseMenuValueTextGo = GameObject.Find("PauseMenu");
                 PauseMenuValueTextGo.SendMessage("GetItemValue", value);               
 
