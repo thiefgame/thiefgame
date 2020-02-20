@@ -9,11 +9,26 @@ public class ResultScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Textコンポーネントを取得する
-        Text Score = gameObject.GetComponent<Text>();
-
-        //scoreをテキストとして表示する
-        Score.text = "合計" + score.ToString() + "円";
+        StartCoroutine("ChangeScore");
     }
 
+    private IEnumerator ChangeScore()
+    {
+        //Textコンポーネントを取得する
+        Text Score = gameObject.GetComponent<Text>();
+        
+
+        for (int i = 0; i < 30; i++)
+        {
+            int r1 = Random.Range(0, 10000);
+
+            Score.text = "Total:" + r1.ToString() + "円";
+
+
+            yield return new WaitForSeconds(0.05f);
+        }
+        //scoreをテキストとして表示する
+        Score.text = "Total:" + score.ToString() + "円";
+
+    }
 }

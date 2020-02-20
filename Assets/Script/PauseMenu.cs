@@ -42,21 +42,20 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (ScrollView.activeSelf)
+            {
+                Time.timeScale = 1f;
 
-            Time.timeScale = 0f;
+                ScrollView.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 0f;
 
-            ScrollView.SetActive(true);           
+                ScrollView.SetActive(true);
+            }                    
         }
-
     }
-
-    public void OnClickResumeButton()
-    {
-        Time.timeScale = 1f;
-
-        ScrollView.SetActive(false);
-    }
-
 }
