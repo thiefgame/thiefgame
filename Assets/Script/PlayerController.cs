@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject footPosition;
     //Animatorを入れる変数
     private Animator animator;
+    //コライダー
+    private CapsuleCollider collider;
     //メインカメラ
     public GameObject mainCamera;
     //unityちゃんの位置を入れる
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //unityちゃんのAnimatorにアクセスする
         animator = GetComponent<Animator>();
+        //colliderを取得
+        collider = GetComponent<CapsuleCollider>();
         //unityちゃんの現在より少し前の位置を保存
         playerPos = transform.position;
     }
@@ -43,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
         //入力内容に沿って移動方向を決定、その方向を向かせる
         direction = mainCamera.transform.right.normalized * x + mainCamera.transform.forward * z;
+        //カメラが上下に傾いていることもあるので軸合わせ
+        direction = new Vector3(direction.x, 0, direction.z);
         if (direction.magnitude != 0)
         {
             transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
@@ -64,6 +70,13 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKeyDown("c"))
             {
                 animator.SetBool("Crouch", true);
+                //しゃがみに合わせてコライダーの調整
+                collider.center = new Vector3(0, 0.9f, 0);
+                collider.height = 1.4f;
+                //キャラクターの調整(モデルで対応する場合不要)
+                //transform.position = Vector3.SmoothDamp(transform.position, transform.position + new Vector3(0, -0.25f, 0), ref velocity, 0.45f);
+                //footPositionがずれるので調整
+                transform.Find("FootPosition").transform.localPosition += new Vector3(0, 0.25f, 0);
             }
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
@@ -90,21 +103,37 @@ public class PlayerController : MonoBehaviour
         {
             if (direction.magnitude != 0)
             {
+                //animator.SetBool("CrouchWalk", true);
+                rb.MovePosition(transform.position + direction / 3);
                 //CrouchWalkへの移行&移動処理
             }
-            if (Input.GetKeyUp("c"))
+            if (Input.GetKeyDown("c"))
             {
                 animator.SetBool("Crouch", false);
+                //しゃがみに合わせてコライダーの調整
+                collider.center = new Vector3(0, 0.8f, 0);
+                collider.height = 1.6f;
+                //キャラクターの調整(モデルで対応する場合不要)
+                //transform.position = Vector3.SmoothDamp(transform.position, transform.position + new Vector3(0, 0.25f, 0), ref velocity, 1.5f);
+                //footPositionがずれるので調整
+                transform.Find("FootPosition").transform.localPosition += new Vector3(0, -0.25f, 0);
             }
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("CrouchWalk"))
         {
-
+            if(direction.magnitude != 0)
+            {
+                rb.MovePosition(transform.position + direction / 3);
+            }
+            else
+            {
+                animator.SetBool("CrouchWalk", false);
+            }
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
             //接地判定
-            if (Physics.CheckSphere(footPosition.transform.position, 0.1f, 1))
+            if (Physics.CheckSphere(footPosition.transform.position, 0.2f, 1))
             {
                 animator.SetBool("Jumping", false);
                 if (direction.magnitude != 0)
@@ -124,4 +153,9 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+    /*IEnumerator Crouch()
+    {
+        //0.1秒待ったあと、0.4秒かけてしゃがむ
+
+    }*/
 }
