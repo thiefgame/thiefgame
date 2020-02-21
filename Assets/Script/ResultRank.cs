@@ -14,19 +14,19 @@ public class ResultRank : MonoBehaviour
 
         if(score > 20000)
         {
-            Rank.text = "S";
+            Rank.text = "Rank:S";
         }
         else if(score > 10000)
         {
-            Rank.text = "A";
+            Rank.text = "Rank:A";
         }
         else if(score > 500)
         {
-            Rank.text = "B";
+            Rank.text = "Rank:B";
         }
         else
         {
-            Rank.text = "C";
+            Rank.text = "Rank:C";
         }
     }
 
