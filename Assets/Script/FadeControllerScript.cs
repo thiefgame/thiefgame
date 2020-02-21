@@ -19,8 +19,13 @@ public class FadeControllerScript : MonoBehaviour
     void Update()
     {
       
-            GetComponent<Image>().color = new Color(red, green, blue, alfa);
-            alfa += speed;
-        
+        GetComponent<Image>().color = new Color(red, green, blue, alfa);
+        alfa += speed;
+
+        if(alfa>=0.99f)
+        {
+            alfa = 0.00f;
+            
+        }
     }
 }
