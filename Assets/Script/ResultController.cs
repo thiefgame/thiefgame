@@ -15,27 +15,31 @@ public class ResultController : MonoBehaviour
     List<int> scoreList = ScoreScript.getscoreList();
 
 
-
     private void Start()
     {
-            for (int i = 0; i < itemList.Count; i++)
-            {
-                //Textコンポーネントを取得する
-                Text ChangeText = Ctext.GetComponent<Text>();
+        StartCoroutine("AddNode");
+    }
 
-                //scoreをテキストとして表示する
-                ChangeText.text = itemList[i] +" "+ scoreList[i] + "円";
+    private IEnumerator AddNode()
+    {
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
 
-                //Contentの子としてNodeを生成する
-                Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
-                Obj.transform.parent = Content.transform;
+            //Textコンポーネントを取得する
+            Text ChangeText = Ctext.GetComponent<Text>();
 
-                //Nodeの子としてtextを生成する
-                textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
-                textObj.transform.parent = Obj.transform;
-            }
+            //scoreをテキストとして表示する
+            ChangeText.text = itemList[i] + " " + scoreList[i] + "円";
 
-        
+            //Contentの子としてNodeを生成する
+            Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
+            Obj.transform.parent = Content.transform;
+
+            //Nodeの子としてtextを生成する
+            textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
+            textObj.transform.parent = Obj.transform;
+        }        
     }
 }
 

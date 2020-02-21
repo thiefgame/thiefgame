@@ -47,6 +47,8 @@ public class GoalUI : MonoBehaviour
 
     public void OnClickEscape()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Result");
+
     }
 }

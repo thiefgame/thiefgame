@@ -31,7 +31,7 @@ public class ScoreScript : MonoBehaviour
     void Start()
     {
         //シーンが終了してもこのオブジェクトは消えなくなる
-        DontDestroyOnLoad(this);
+       DontDestroyOnLoad(this);
     }
 
     //メッセージを受け取る

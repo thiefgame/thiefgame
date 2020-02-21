@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: 047efd7828ec7da44948a9086ce32d78
+  - enabled: 1
+    path: Assets/Scenes/kuroda.unity
+    guid: bb28b5782e6c5ef49b80b320e53e354e
   m_configObjects: {}
