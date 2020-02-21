@@ -9,18 +9,27 @@ public class ResultRank : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        StartCoroutine("RankChange");
+
+     
+    }
+        private IEnumerator RankChange()
+        {
+            yield return new WaitForSeconds(3.0f);
+
         //Textコンポーネントを取得する
         Text Rank = gameObject.GetComponent<Text>();
 
-        if(score > 20000)
+        if (score > 20000)
         {
             Rank.text = "Rank:S";
         }
-        else if(score > 10000)
+        else if (score > 10000)
         {
             Rank.text = "Rank:A";
         }
-        else if(score > 500)
+        else if (score > 500)
         {
             Rank.text = "Rank:B";
         }
@@ -29,5 +38,6 @@ public class ResultRank : MonoBehaviour
             Rank.text = "Rank:C";
         }
     }
+    
 
 }
