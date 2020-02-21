@@ -3124,6 +3124,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6605733216339556662, guid: 4942b9558bb76314385357c01c6304ad,
+        type: 3}
+      propertyPath: chgFrame
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6605733216339556663, guid: 4942b9558bb76314385357c01c6304ad,
         type: 3}
       propertyPath: mainCamera
