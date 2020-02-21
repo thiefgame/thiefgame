@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     //Rigidbodyを変数に入れる
     Rigidbody rb;
     //移動速度
-    public float speed = 3f;
+    public float speed = 4f;
     //ジャンプ力
     public float thrust = 6f;
     public GameObject footPosition;
@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     Vector3 direction;
     private bool walk = false;
+    //歩き、走りをやめるまでの猶予フレーム数
+    public int chgFrame = 3;
+    private int frameCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -105,8 +108,17 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                animator.SetBool("Walking", false);
-                animator.SetBool("Running", false);
+                if (frameCount >= chgFrame)
+                {//入力がなくなってから一定フレーム経過後に止まる
+                    animator.SetBool("Walking", false);
+                    animator.SetBool("Running", false);
+                    frameCount = 0;
+                }
+                else
+                {
+                    rb.MovePosition(transform.position + direction / 2);
+                    frameCount++;
+                }
             }
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Run"))
@@ -131,8 +143,17 @@ public class PlayerController : MonoBehaviour
             }
             else
             {//Run中止→Idle移行
-                animator.SetBool("Running", false);
-                animator.SetBool("Walking", false);
+                if (frameCount >= chgFrame)
+                {
+                    animator.SetBool("Running", false);
+                    animator.SetBool("Walking", false);
+                    frameCount = 0;
+                }
+                else
+                {
+                    rb.MovePosition(transform.position + direction);
+                    frameCount++;
+                }
             }
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Crouch"))

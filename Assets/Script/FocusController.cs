@@ -25,6 +25,7 @@ public class FocusController : MonoBehaviour
         firstCamPos = lastTogglePos - mainCamera.transform.position;
         firstLookPos = lastTogglePos - lookPoint.transform.position;
         CameraWantToBe = mainCamera.transform.position;
+        mainCamera.transform.LookAt(lookPoint.transform);
     }
 
     // Update is called once per frame
