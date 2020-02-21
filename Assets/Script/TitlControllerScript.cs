@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitlControllerScript : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class TitlControllerScript : MonoBehaviour
     public void OnStartButtonClcked()
     {
         ButtonSound.Play();
-        Application.LoadLevel("Main");
+        // Application.LoadLevel("Main");
+        SceneManager.LoadScene("kuroda");
     }
 }

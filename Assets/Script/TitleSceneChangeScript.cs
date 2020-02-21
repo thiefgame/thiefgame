@@ -10,6 +10,6 @@ public class TitleSceneChangeScript : MonoBehaviour
     public void OnTitle()
     {
         // 「ButtonScene」を自分の読み込みたいscene名に変える
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Title");        
     }
 }

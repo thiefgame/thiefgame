@@ -25,11 +25,15 @@ public class FocusController : MonoBehaviour
         firstCamPos = lastTogglePos - mainCamera.transform.position;
         firstLookPos = lastTogglePos - lookPoint.transform.position;
         CameraWantToBe = mainCamera.transform.position;
+        mainCamera.transform.LookAt(lookPoint.transform);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //遮蔽物によるカメラ位置の補正をリセット
+        mainCamera.transform.position = CameraWantToBe;
+
         //トグルが動いた場合、注視点とカメラも同じだけ動かす
         Vector3 toggleMovement = toggle.transform.position - lastTogglePos;
         if (toggleMovement != Vector3.zero)
@@ -46,12 +50,19 @@ public class FocusController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R)) { ResetFocus(); }
 
+        CameraWantToBe = mainCamera.transform.position;
+
         //カメラとトグルの間に障害物があるか検出
         RaycastHit hit;
-        if(Physics.Raycast(mainCamera.transform.position,mainCamera.transform.forward,out hit, Mathf.Infinity))
+        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity))
         {
             Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * hit.distance, Color.green);
-            //Debug.Log("HIT:" + hit.collider.ToString());
+            while (hit.collider.gameObject.name != "CameraToggle")
+            {
+                mainCamera.transform.position += (mainCamera.transform.forward.normalized * 0.1f);
+                Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity);
+            }
+            //hit.collider.gameObject.
         }
         else { Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * 1000, Color.red); }
 
