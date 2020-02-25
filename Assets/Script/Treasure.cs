@@ -18,6 +18,8 @@ public class Treasure : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if(other.TryGetComponent<Animator>(out Animator animator)) { animator.SetTrigger("Steal"); }
+
                 ItemName.SetActive(true);
 
                 //オブジェクトScoreを取得してvalueの値を送る

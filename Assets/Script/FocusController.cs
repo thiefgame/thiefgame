@@ -11,6 +11,7 @@ public class FocusController : MonoBehaviour
     public float rotateSpeed = 2.0f;           //回転の速さ
     public float lookUpLimit = 40;             //見上げる角度制限(度)
     public float lookDownLimit = 30;           //見下ろす角度制限(度)
+    public float cameraDistance = 2.0f;        //カメラとキャラクターとの距離
 
     private Vector3 firstCamPos;
     private Vector3 firstLookPos;
@@ -22,7 +23,11 @@ public class FocusController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         lastTogglePos = toggle.transform.position;
+        mainCamera.transform.position = player.transform.position - player.transform.forward * cameraDistance;
+        mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, toggle.transform.position.y, mainCamera.transform.position.z);
         firstCamPos = lastTogglePos - mainCamera.transform.position;
+        lookPoint.transform.position = player.transform.position + player.transform.forward * cameraDistance;
+        lookPoint.transform.position = new Vector3(lookPoint.transform.position.x, toggle.transform.position.y, lookPoint.transform.position.z);
         firstLookPos = lastTogglePos - lookPoint.transform.position;
         CameraWantToBe = mainCamera.transform.position;
         mainCamera.transform.LookAt(lookPoint.transform);
