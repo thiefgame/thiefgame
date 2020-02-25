@@ -9,7 +9,6 @@ public class ResultScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
         StartCoroutine("ChangeScore");
     }
     
@@ -34,7 +33,6 @@ public class ResultScore : MonoBehaviour
         }
         
         //scoreをテキストとして表示する
-        Score.text = "Total:" + score.ToString() + "円";
-        
+        Score.text = "Total:" + score.ToString() + "円";           
     }
 }

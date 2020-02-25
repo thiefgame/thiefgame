@@ -18,6 +18,7 @@ public class ResultController : MonoBehaviour
     private void Start()
     {
         StartCoroutine("AddNode");
+
     }
 
     private IEnumerator AddNode()
