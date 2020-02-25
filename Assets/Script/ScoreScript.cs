@@ -8,15 +8,15 @@ public class ScoreScript : MonoBehaviour
     //スコアをメモする変数を宣言する
     public static int score = 0;
     string ItemName;
+    //取得アイテムと金額を格納する配列を宣言        
+    public static List<string> itemList = new List<string>();
+    public static List<int> scoreList = new List<int>();
 
     public static int getScore()
     {
         return score;
     }
 
-    //取得アイテムと金額を格納する配列を宣言        
-    public static List<string> itemList = new List<string>();
-    public static List<int> scoreList = new List<int>();
 
     public static List<string> getitemList()
     {
