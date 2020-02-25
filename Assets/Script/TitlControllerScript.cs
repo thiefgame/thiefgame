@@ -2,19 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TitlControllerScript : MonoBehaviour
 {
     public AudioSource ButtonSound;
 
-    private void Start()
+    [SerializeField] GameObject StartButton;
+    Button button;
+
+    List<string> itemList = ScoreScript.getitemList();
+    List<int> scoreList = ScoreScript.getscoreList();
+    
+
+    void Start()
     {
+        button = StartButton.GetComponent<Button>();
+        //ボタンが選択された状態になる
+        button.Select();
+
         ButtonSound = this.GetComponent<AudioSource>();
     }
+
     public void OnStartButtonClcked()
     {
+        itemList.Clear();
+        scoreList.Clear();
         ButtonSound.Play();
-        // Application.LoadLevel("Main");
-        SceneManager.LoadScene("kuroda");
+
+        Application.LoadLevel("Main");
+        //SceneManager.LoadScene("kuroda");
     }
 }

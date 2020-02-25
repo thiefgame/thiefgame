@@ -64,8 +64,11 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {//スペースキーやパッドの３ボタンでジャンプ
-                animator.SetBool("Jumping", true);
-                rb.AddForce(transform.up * thrust + direction * thrust / 4, ForceMode.Impulse);
+                if (!animator.GetBool("Jumping"))
+                {
+                    animator.SetBool("Jumping", true);
+                    rb.AddForce(transform.up * thrust + direction * thrust / 4, ForceMode.Impulse);
+                }
             }
             else if (direction.magnitude != 0)
             {
@@ -125,8 +128,11 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {//スペースキーやパッドの３ボタンでジャンプ
-                animator.SetBool("Jumping", true);
-                rb.AddForce(transform.up * thrust + direction * thrust / 2, ForceMode.Impulse);
+                if (!animator.GetBool("Jumping"))
+                {
+                    animator.SetBool("Jumping", true);
+                    rb.AddForce(transform.up * thrust + direction * thrust / 2, ForceMode.Impulse);
+                }
             }
             else if (direction.magnitude != 0)
             {

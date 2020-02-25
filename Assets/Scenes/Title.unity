@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1069182588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 329385180272479148, guid: cc49f4230e2e7db4e9579428a94cfebf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6507426528325426411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1153102622
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +567,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 329385181950019413, guid: cc49f4230e2e7db4e9579428a94cfebf,
+        type: 3}
+      propertyPath: StartButton
+      value: 
+      objectReference: {fileID: 1069182588}
     - target: {fileID: 7251577693403736420, guid: cc49f4230e2e7db4e9579428a94cfebf,
         type: 3}
       propertyPath: Loop

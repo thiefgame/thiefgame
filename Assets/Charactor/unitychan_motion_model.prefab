@@ -2088,7 +2088,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
@@ -2108,6 +2108,7 @@ MonoBehaviour:
   thrust: 7
   footPosition: {fileID: 6605733217844698671}
   mainCamera: {fileID: 0}
+  chgFrame: 3
 --- !u!114 &6605733216339556663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2128,6 +2129,7 @@ MonoBehaviour:
   rotateSpeed: 2
   lookUpLimit: 40
   lookDownLimit: 30
+  cameraDistance: 2
 --- !u!1 &2929031469955029100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,7 +4676,7 @@ GameObject:
   - component: {fileID: 6605733217946783694}
   - component: {fileID: 6605733217946783680}
   - component: {fileID: 6605733217946783695}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: CameraToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
