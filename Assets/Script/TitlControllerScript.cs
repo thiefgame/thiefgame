@@ -14,7 +14,7 @@ public class TitlControllerScript : MonoBehaviour
     public void OnStartButtonClcked()
     {
         ButtonSound.Play();
-        // Application.LoadLevel("Main");
-        SceneManager.LoadScene("kuroda");
+        Application.LoadLevel("Main");
+        //SceneManager.LoadScene("kuroda");
     }
 }

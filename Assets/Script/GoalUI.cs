@@ -32,6 +32,24 @@ public class GoalUI : MonoBehaviour
                 button.Select();
                 Time.timeScale = 0f;
             }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                Debug.Log("Cを押した");
+                GoalButton.SetActive(false);
+                Time.timeScale = 1f;
+
+                Cursor.visible = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Eを押した");
+                Time.timeScale = 1f;
+                SceneManager.LoadScene("Result");
+            }
+
+
         }
     }
 
