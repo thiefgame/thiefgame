@@ -10,7 +10,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject Ctext;
     GameObject Obj;
     GameObject textObj;
-    [SerializeField] GameObject ScrollView;
+    [SerializeField] GameObject GetItemList;
+    [SerializeField] GameObject ScroolBar1;
+    Button button;
 
     string ItemName;
     int ItemValue =100;
@@ -44,17 +46,23 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (ScrollView.activeSelf)
+            if (GetItemList.activeSelf)
             {
+                Cursor.lockState = CursorLockMode.Locked;
+
+
                 Time.timeScale = 1f;
 
-                ScrollView.SetActive(false);
+                GetItemList.SetActive(false);
             }
             else
             {
+                
+                Cursor.lockState = CursorLockMode.None;
+
                 Time.timeScale = 0f;
 
-                ScrollView.SetActive(true);
+                GetItemList.SetActive(true);
             }                    
         }
     }
