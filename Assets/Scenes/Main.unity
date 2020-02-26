@@ -642,6 +642,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cae847fab2bc9e4597658bd67282837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &671909475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4916894340173330446, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1657081080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &726706017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1405,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4916894340173330446, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4916894340290553888, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1529,6 +1540,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickContinue
       objectReference: {fileID: 0}
+    - target: {fileID: 4916894340822313273, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: GetItemList
+      value: 
+      objectReference: {fileID: 671909475}
+    - target: {fileID: 4916894340822313273, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: ScroolBar1
+      value: 
+      objectReference: {fileID: 2115651497}
     - target: {fileID: 4916894341019217675, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1538,6 +1559,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916894341652197916, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916894341652197916, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916894342034561298, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: m_Name
+      value: ScrollView
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916894342100418246, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: m_Direction
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4916894342100418248, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+        type: 3}
+      propertyPath: m_Name
+      value: Scrollbar1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac, type: 3}
@@ -1559,6 +1605,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1657081080}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2115651497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4916894342100418248, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1657081080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2115651502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115651497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c059ea5fa6e5a5d42b1a08be821a6068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6048557641461482237
 PrefabInstance:
   m_ObjectHideFlags: 0
