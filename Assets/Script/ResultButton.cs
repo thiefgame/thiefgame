@@ -12,6 +12,7 @@ public class ResultButton : MonoBehaviour
     
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
         button = TitleButton.GetComponent<Button>();
         //ボタンが選択された状態になる
         button.Select();
