@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
     public AudioClip openclip;
     public AudioClip closeclip;
+
     //ドアのサーチエリアに入っているかどうか
-    private bool isNear;
+     bool isNear;
+
     //ドアのアニメーター
-    private Animator animator;
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,20 +21,21 @@ public class DoorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("f") && isNear)
+        if (Input.GetKeyDown("f") && isNear)
         {
             animator.SetBool("Open", !animator.GetBool("Open"));
             if (animator.GetBool("Open"))
             {
-                animator.SetTrigger("Steal");
                 gameObject.GetComponent<AudioSource>().PlayOneShot(openclip);
+                //
+                //if (other.TryGetComponent<Animator>(out Animator anim)) { anim.SetTrigger("Steal"); }
             }
             else
             {
-                animator.SetTrigger("Steal");
                 gameObject.GetComponent<AudioSource>().PlayOneShot(closeclip);
+                //if (other.TryGetComponent<Animator>(out Animator anim)) { anim.SetTrigger("Steal"); }
             }
-        }   
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,12 +45,15 @@ public class DoorManager : MonoBehaviour
             isNear = true;
         }
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Player" && Input.GetKeyDown("f"))
+        {
+            other.GetComponent<Animator>().SetTrigger("Steal");
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Player")
-        {
-            isNear = false;
-        }
+        isNear = false;
     }
 }
