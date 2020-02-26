@@ -48,11 +48,8 @@ public class PauseMenu : MonoBehaviour
         {
             if (GetItemList.activeSelf)
             {
-                
-                button = ScroolBar1.GetComponent<Button>();
-                //ボタンが選択された状態になる
-                button.Select();
-                
+                Cursor.lockState = CursorLockMode.Locked;
+
 
                 Time.timeScale = 1f;
 
@@ -60,6 +57,9 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                
+                Cursor.lockState = CursorLockMode.None;
+
                 Time.timeScale = 0f;
 
                 GetItemList.SetActive(true);
