@@ -551,11 +551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78176386, guid: cc49f4230e2e7db4e9579428a94cfebf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 56.399994
+      value: 55.899994
       objectReference: {fileID: 0}
     - target: {fileID: 78176386, guid: cc49f4230e2e7db4e9579428a94cfebf, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -257.2
+      value: -256.2
       objectReference: {fileID: 0}
     - target: {fileID: 78176387, guid: cc49f4230e2e7db4e9579428a94cfebf, type: 3}
       propertyPath: m_Color.a
