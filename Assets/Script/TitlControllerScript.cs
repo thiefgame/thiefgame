@@ -33,4 +33,5 @@ public class TitlControllerScript : MonoBehaviour
         Application.LoadLevel("Main");
         //SceneManager.LoadScene("kuroda");
     }
+
 }
