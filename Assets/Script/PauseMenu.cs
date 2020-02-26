@@ -10,7 +10,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject Ctext;
     GameObject Obj;
     GameObject textObj;
-    [SerializeField] GameObject ScrollView;
+    [SerializeField] GameObject GetItemList;
+    [SerializeField] GameObject ScroolBar1;
+    Button button;
+    public Vector3 scale;
 
     string ItemName;
     int ItemValue =100;
@@ -33,28 +36,35 @@ public class PauseMenu : MonoBehaviour
         //Contentの子としてNodeを生成する
         Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
         Obj.transform.parent = Content.transform;
+        Obj.transform.localScale = new Vector3(scale.x, scale.x, scale.z);
 
         //Nodeの子としてtextを生成する
         textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
         textObj.transform.parent = Obj.transform;
-
+        textObj.transform.localScale = new Vector3(scale.x, scale.x, scale.z);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (ScrollView.activeSelf)
+            if (GetItemList.activeSelf)
             {
+                Cursor.lockState = CursorLockMode.Locked;
+
+
                 Time.timeScale = 1f;
 
-                ScrollView.SetActive(false);
+                GetItemList.SetActive(false);
             }
             else
             {
+                
+                Cursor.lockState = CursorLockMode.None;
+
                 Time.timeScale = 0f;
 
-                ScrollView.SetActive(true);
+                GetItemList.SetActive(true);
             }                    
         }
     }

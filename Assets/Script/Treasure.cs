@@ -9,15 +9,24 @@ public class Treasure : MonoBehaviour
     public string tresureName;
     [SerializeField] GameObject ItemName;
 
-   
+    private void Update()
+    {
+        //GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
+    }
+
+
 
     //プレイヤーが金品に近づいてるときにクリックすると反応
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+            
+            //GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
             if (Input.GetMouseButtonDown(0))
             {
+                if(other.TryGetComponent<Animator>(out Animator animator)) { animator.SetTrigger("Steal"); }
+
                 ItemName.SetActive(true);
 
                 //オブジェクトScoreを取得してvalueの値を送る

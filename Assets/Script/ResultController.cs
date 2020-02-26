@@ -9,7 +9,8 @@ public class ResultController : MonoBehaviour
     [SerializeField] GameObject Ctext;
     GameObject Obj;
     GameObject textObj;
-    
+    public Vector3 scale;
+
     //ScoreScriptから取得アイテムの名前と金額が格納された配列を受け取る
     List<string> itemList = ScoreScript.getitemList();
     List<int> scoreList = ScoreScript.getscoreList();
@@ -18,6 +19,7 @@ public class ResultController : MonoBehaviour
     private void Start()
     {
         StartCoroutine("AddNode");
+
     }
 
     private IEnumerator AddNode()
@@ -35,10 +37,12 @@ public class ResultController : MonoBehaviour
             //Contentの子としてNodeを生成する
             Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
             Obj.transform.parent = Content.transform;
+            Obj.transform.localScale = new Vector3(scale.x, scale.x, scale.z);
 
             //Nodeの子としてtextを生成する
             textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
             textObj.transform.parent = Obj.transform;
+            textObj.transform.localScale = new Vector3(scale.x, scale.x, scale.z);
         }        
     }
 }
