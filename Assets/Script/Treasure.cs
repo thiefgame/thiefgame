@@ -8,6 +8,7 @@ public class Treasure : MonoBehaviour
     public int value;
     public string tresureName;
     [SerializeField] GameObject ItemName;
+    [SerializeField] GameObject TreasureItemCanvas;
 
     private void Update()
     {
@@ -21,8 +22,8 @@ public class Treasure : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            
-            //GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+            TreasureItemCanvas.SetActive(true);
+            GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
             if (Input.GetMouseButtonDown(0))
             {
                 if(other.TryGetComponent<Animator>(out Animator animator)) { animator.SetTrigger("Steal"); }
@@ -53,5 +54,15 @@ public class Treasure : MonoBehaviour
                 this.gameObject.SetActive(false);
             }
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            TreasureItemCanvas.SetActive(false);
+            Debug.Log("通り抜け終えた");
+        }
+            
     }
 }
