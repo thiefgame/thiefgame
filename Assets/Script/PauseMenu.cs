@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject GetItemList;
     [SerializeField] GameObject ScroolBar1;
     Button button;
+    public Vector3 scale;
 
     string ItemName;
     int ItemValue =100;
@@ -35,11 +36,12 @@ public class PauseMenu : MonoBehaviour
         //Contentの子としてNodeを生成する
         Obj = (GameObject)Instantiate(Node, this.transform.position, Quaternion.identity);
         Obj.transform.parent = Content.transform;
+        Obj.transform.localScale = new Vector3(scale.x, scale.x, scale.z);
 
         //Nodeの子としてtextを生成する
         textObj = (GameObject)Instantiate(Ctext, this.transform.position, Quaternion.identity);
         textObj.transform.parent = Obj.transform;
-
+        textObj.transform.localScale = new Vector3(scale.x, scale.x, scale.z);
     }
 
     void Update()
