@@ -1514,31 +1514,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 664955485}
-    - target: {fileID: 4916894340444069196, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickEscape
-      objectReference: {fileID: 0}
     - target: {fileID: 4916894340752924006, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 664955485}
-    - target: {fileID: 4916894340752924006, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickContinue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916894341019217675, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -17.099976
-      objectReference: {fileID: 0}
-    - target: {fileID: 4916894341630952571, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac, type: 3}
 --- !u!1 &1657081081 stripped
