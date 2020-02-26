@@ -11,6 +11,10 @@ public class TitlControllerScript : MonoBehaviour
     [SerializeField] GameObject StartButton;
     Button button;
 
+    List<string> itemList = ScoreScript.getitemList();
+    List<int> scoreList = ScoreScript.getscoreList();
+    
+
     void Start()
     {
         button = StartButton.GetComponent<Button>();
@@ -22,7 +26,10 @@ public class TitlControllerScript : MonoBehaviour
 
     public void OnStartButtonClcked()
     {
+        itemList.Clear();
+        scoreList.Clear();
         ButtonSound.Play();
+
         Application.LoadLevel("Main");
         //SceneManager.LoadScene("kuroda");
     }

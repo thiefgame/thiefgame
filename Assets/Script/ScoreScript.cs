@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class ScoreScript : MonoBehaviour
 {
     //スコアをメモする変数を宣言する
     public static int score = 0;
-    string ItemName;
+  
 
+    string ItemName;
+    //取得アイテムと金額を格納する配列を宣言        
+    public static List<string> itemList = new List<string>();
+    public static List<int> scoreList = new List<int>();
+
+    
     public static int getScore()
     {
         return score;
     }
-
-    //取得アイテムと金額を格納する配列を宣言        
-    public static List<string> itemList = new List<string>();
-    public static List<int> scoreList = new List<int>();
+    
 
     public static List<string> getitemList()
     {
@@ -32,6 +37,14 @@ public class ScoreScript : MonoBehaviour
     {
         //シーンが終了してもこのオブジェクトは消えなくなる
        DontDestroyOnLoad(this);
+        //シーン始めにOnSceneLoadedが走る処理
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    //Mainシーンの始めに走る
+    void OnSceneLoaded(Scene Main, LoadSceneMode mode)
+    {
+        score = 0;
     }
 
     //メッセージを受け取る

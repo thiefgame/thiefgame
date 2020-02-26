@@ -59,13 +59,13 @@ public class FocusController : MonoBehaviour
 
         //カメラとトグルの間に障害物があるか検出
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity, 257))
+        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity, 5))
         {
             Debug.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * hit.distance, Color.green);
             while (hit.collider.gameObject.name != "CameraToggle")
             {
                 mainCamera.transform.position += (mainCamera.transform.forward.normalized * 0.1f);
-                Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity, 257);
+                Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity, 5);
             }
             //hit.collider.gameObject.
         }
