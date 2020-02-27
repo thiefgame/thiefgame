@@ -24,6 +24,7 @@ public class Treasure : MonoBehaviour
         {
             TreasureItemCanvas.SetActive(true);
             GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+            transform.Rotate(new Vector3(0f, -180f, 0f));
             if (Input.GetMouseButtonDown(0))
             {
                 if(other.TryGetComponent<Animator>(out Animator animator)) { animator.SetTrigger("Steal"); }
