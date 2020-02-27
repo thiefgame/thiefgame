@@ -7,7 +7,9 @@ public class FootGauge : MonoBehaviour
 {
     public GameObject[] Foots;
     int a = 0;
-    
+    private float countup = 0.0f;
+
+    /*
     void Update()
     {
         //クリックしたらFootsを表示する
@@ -22,6 +24,13 @@ public class FootGauge : MonoBehaviour
         {
             enabled = false;
         }
+    }
+    */
+
+    void Update()
+    {
+        //時間をカウントする
+        countup += Time.deltaTime;
     }
 
     //GameOverMessageに値を渡す
