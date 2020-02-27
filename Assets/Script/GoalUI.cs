@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class GoalUI : MonoBehaviour
 {
-    [SerializeField] GameObject GoalButton;
-    [SerializeField] GameObject continueButton;
+    [SerializeField] GameObject GoalButton;//ゴールボタンをアタッチ
+    [SerializeField] GameObject continueButton;//コンティニューボタンをアタッチ
 
     
     //プレイヤーがゴール地点に入ったとき
@@ -38,10 +38,12 @@ public class GoalUI : MonoBehaviour
         Cursor.visible = true;
     }
 
+    //エスケープボタンを押したとき
     public void OnClickEscape()
     {
+        //ポーズ解除
         Time.timeScale = 1f;
+        //リザルト画面にシーン遷移
         SceneManager.LoadScene("Result");
-
     }
 }
