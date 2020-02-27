@@ -16,6 +16,7 @@ public class FocusController : MonoBehaviour
 
     private Vector3 firstCamPos;
     private Vector3 firstLookPos;
+    private float firstLightRotX;
     private Vector3 lastTogglePos;
     private Vector3 CameraWantToBe;
 
@@ -24,6 +25,7 @@ public class FocusController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         headLight = transform.Find("HeadLight").gameObject;
+        firstLightRotX = headLight.transform.rotation.eulerAngles.x;
         lastTogglePos = toggle.transform.position;
         mainCamera.transform.position = player.transform.position - player.transform.forward * cameraDistance;
         mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, toggle.transform.position.y, mainCamera.transform.position.z);
@@ -92,7 +94,7 @@ public class FocusController : MonoBehaviour
         {
             lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
             //ヘッドライトの縦方向をカメラと同期
-            headLight.transform.Rotate(player.transform.forward, -angle.y);
+            headLight.transform.rotation = Quaternion.Euler(new Vector3(headLight.transform.rotation.eulerAngles.x -angle.y, headLight.transform.rotation.eulerAngles.y, headLight.transform.rotation.eulerAngles.z));
             mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
         }
         else
@@ -101,14 +103,14 @@ public class FocusController : MonoBehaviour
             {
                 lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
                 //ヘッドライトの縦方向をカメラと同期
-                headLight.transform.Rotate(player.transform.forward, -angle.y);
+                headLight.transform.rotation = Quaternion.Euler(new Vector3(headLight.transform.rotation.eulerAngles.x - angle.y, headLight.transform.rotation.eulerAngles.y, headLight.transform.rotation.eulerAngles.z));
                 mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
             }
             if (mainCamera.transform.eulerAngles.x < 360 - lookUpLimit && mainCamera.transform.eulerAngles.x >= 180 && angle.y < 0)
             {
                 lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
                 //ヘッドライトの縦方向をカメラと同期
-                headLight.transform.Rotate(player.transform.forward, -angle.y);
+                headLight.transform.rotation = Quaternion.Euler(new Vector3(headLight.transform.rotation.eulerAngles.x - angle.y, headLight.transform.rotation.eulerAngles.y, headLight.transform.rotation.eulerAngles.z));
                 mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
             }
         }
@@ -125,5 +127,6 @@ public class FocusController : MonoBehaviour
         lookPoint.transform.rotation = Quaternion.identity;
         mainCamera.transform.position = toggle.transform.position - firstCamPos.magnitude * player.transform.forward.normalized;
         mainCamera.transform.LookAt(lookPoint.transform);
+        headLight.transform.rotation = Quaternion.Euler(new Vector3(firstLightRotX, headLight.transform.rotation.eulerAngles.y, headLight.transform.rotation.eulerAngles.z));
     }
 }
