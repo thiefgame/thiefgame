@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject mainCamera;
     //ヘッドライト
     private Light headLight;
+    private Light headLightGlow;
     //unityちゃんの位置を入れる
     Vector3 playerPos;
     //その他ローカル変数
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         collider = GetComponent<CapsuleCollider>();
         //ヘッドライト取得
         headLight = transform.Find("HeadLight").gameObject.GetComponent<Light>();
+        headLightGlow = transform.Find("HeadLight").Find("HeadLightGlow").gameObject.GetComponent<Light>();
         //unityちゃんの現在より少し前の位置を保存
         playerPos = transform.position;
     }
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         //WS↑↓で前後移動
         float z = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
         //FキーでライトON/OFF
-        if (Input.GetKeyDown(KeyCode.F)) { headLight.enabled = !headLight.enabled; }
+        if (Input.GetKeyDown(KeyCode.F)) { headLight.enabled = !headLight.enabled; headLightGlow.enabled = headLight.enabled; }
 
         //入力内容に沿って移動方向を決定、その方向を向かせる
         direction = mainCamera.transform.right.normalized * x + mainCamera.transform.forward * z;
