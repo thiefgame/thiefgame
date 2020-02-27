@@ -6,16 +6,9 @@ using UnityEngine.UI;
 
 public class GoalUI : MonoBehaviour
 {
-    [SerializeField] GameObject GoalButton;
-    [SerializeField] GameObject continueButton;
-    Button button;
-   
-    void Start()
-    {
-        button =continueButton.GetComponent<Button>();
-        //ボタンが選択された状態になる
-        button.Select();
-    }
+    [SerializeField] GameObject GoalButton;//ゴールボタンをアタッチ
+    [SerializeField] GameObject continueButton;//コンティニューボタンをアタッチ
+
     
     //プレイヤーがゴール地点に入ったとき
     void OnTriggerStay(Collider other)
@@ -23,13 +16,11 @@ public class GoalUI : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //クリックしたときゴールボタンを表示して時を止める（FixedUpdateメソッドのみ）
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetMouseButtonDown(0))
             {
                 GoalButton.SetActive(true);
-
-                button = continueButton.GetComponent<Button>();
-                //ボタンが選択された状態になる
-                button.Select();
+                //カーソルを表示させる
+                Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0f;
             }
         }
@@ -38,6 +29,8 @@ public class GoalUI : MonoBehaviour
     //コンティニューボタンを押したとき
     public void OnClickContinue()
     {
+        //カーソルを非表示にする
+        Cursor.lockState = CursorLockMode.Locked;
         //ポーズを解除してボタンを非表示
         GoalButton.SetActive(false);
         Time.timeScale = 1f;
@@ -45,10 +38,12 @@ public class GoalUI : MonoBehaviour
         Cursor.visible = true;
     }
 
+    //エスケープボタンを押したとき
     public void OnClickEscape()
     {
+        //ポーズ解除
         Time.timeScale = 1f;
+        //リザルト画面にシーン遷移
         SceneManager.LoadScene("Result");
-
     }
 }

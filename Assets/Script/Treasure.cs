@@ -5,14 +5,10 @@ using UnityEngine.UI;//UIをスクリプトから動かせるように追加す�
 
 public class Treasure : MonoBehaviour
 {
-    public int value;
-    public string tresureName;
-    [SerializeField] GameObject ItemName;
-
-    private void Update()
-    {
-        //GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").transform);
-    }
+    public int value;//アイテムの値段
+    public string tresureName;//アイテムの名前
+    [SerializeField] GameObject ItemName;//アイテム名が書かれたイメージ画像
+    [SerializeField] GameObject TreasureItemCanvas;//アイテム取得サインのキャンバス
 
 
 
@@ -21,12 +17,19 @@ public class Treasure : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            
-            //GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+            //アイテム取得サイン表示
+            TreasureItemCanvas.SetActive(true);
+            //アイテム取得サインは常にプレイヤーの方向を向く
+            GameObject.Find("TreasureItemCanvas").transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+            transform.Rotate(new Vector3(0f, -180f, 0f));
+
+            //クリックしたとき
             if (Input.GetMouseButtonDown(0))
             {
+                //stealアニメーションを再生
                 if(other.TryGetComponent<Animator>(out Animator animator)) { animator.SetTrigger("Steal"); }
 
+                //アイテム名が書かれた画像を表示
                 ItemName.SetActive(true);
 
                 //オブジェクトScoreを取得してvalueの値を送る
@@ -53,5 +56,16 @@ public class Treasure : MonoBehaviour
                 this.gameObject.SetActive(false);
             }
         }
+    }
+
+    //プレイヤーがアイテムから離れたら
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            //アイテム取得サインを非表示
+            TreasureItemCanvas.SetActive(false);
+        }
+            
     }
 }

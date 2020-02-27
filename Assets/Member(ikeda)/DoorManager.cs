@@ -6,7 +6,7 @@ public class DoorManager : MonoBehaviour
     public AudioClip closeclip;
 
     //ドアのサーチエリアに入っているかどうか
-     bool isNear;
+    bool isNear;
 
     //ドアのアニメーター
     public Animator animator;
@@ -21,7 +21,7 @@ public class DoorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f") && isNear)
+        if (Input.GetKeyDown("e") && isNear)
         {
             animator.SetBool("Open", !animator.GetBool("Open"));
             if (animator.GetBool("Open"))
@@ -47,7 +47,7 @@ public class DoorManager : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player" && Input.GetKeyDown("f"))
+        if(other.tag == "Player" && Input.GetKeyDown("e"))
         {
             other.GetComponent<Animator>().SetTrigger("Steal");
         }
