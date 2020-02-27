@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class DoorManager : MonoBehaviour
+public class DoorManagerZ : MonoBehaviour
 {
     public AudioClip openclip;
     public AudioClip closeclip;
@@ -23,8 +25,8 @@ public class DoorManager : MonoBehaviour
     {
         if (Input.GetKeyDown("e") && isNear)
         {
-            animator.SetBool("Open", !animator.GetBool("Open"));
-            if (animator.GetBool("Open"))
+            animator.SetBool("OpenZ", !animator.GetBool("OpenZ"));
+            if (animator.GetBool("OpenZ"))
             {
                 gameObject.GetComponent<AudioSource>().PlayOneShot(openclip);
                 //
@@ -40,14 +42,14 @@ public class DoorManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             isNear = true;
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player" && Input.GetKeyDown("e"))
+        if (other.tag == "Player" && Input.GetKeyDown("e"))
         {
             other.GetComponent<Animator>().SetTrigger("Steal");
         }
