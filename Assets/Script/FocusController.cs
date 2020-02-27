@@ -12,6 +12,7 @@ public class FocusController : MonoBehaviour
     public float lookUpLimit = 40;             //見上げる角度制限(度)
     public float lookDownLimit = 30;           //見下ろす角度制限(度)
     public float cameraDistance = 2.0f;        //カメラとキャラクターとの距離
+    private GameObject headLight;
 
     private Vector3 firstCamPos;
     private Vector3 firstLookPos;
@@ -22,6 +23,7 @@ public class FocusController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        headLight = transform.Find("HeadLight").gameObject;
         lastTogglePos = toggle.transform.position;
         mainCamera.transform.position = player.transform.position - player.transform.forward * cameraDistance;
         mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, toggle.transform.position.y, mainCamera.transform.position.z);
@@ -89,6 +91,8 @@ public class FocusController : MonoBehaviour
         if (mainCamera.transform.eulerAngles.x <= lookDownLimit || mainCamera.transform.eulerAngles.x >= 360 - lookUpLimit)
         {
             lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
+            //ヘッドライトの縦方向をカメラと同期
+            headLight.transform.Rotate(player.transform.forward, -angle.y);
             mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
         }
         else
@@ -96,11 +100,15 @@ public class FocusController : MonoBehaviour
             if(mainCamera.transform.eulerAngles.x > lookDownLimit && mainCamera.transform.eulerAngles.x < 180 && angle.y > 0)
             {
                 lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
+                //ヘッドライトの縦方向をカメラと同期
+                headLight.transform.Rotate(player.transform.forward, -angle.y);
                 mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
             }
             if (mainCamera.transform.eulerAngles.x < 360 - lookUpLimit && mainCamera.transform.eulerAngles.x >= 180 && angle.y < 0)
             {
                 lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
+                //ヘッドライトの縦方向をカメラと同期
+                headLight.transform.Rotate(player.transform.forward, -angle.y);
                 mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
             }
         }
