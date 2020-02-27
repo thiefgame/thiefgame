@@ -7,6 +7,7 @@ public class FloorFall : MonoBehaviour
     bool isFall;
 
     public AudioClip fallClip;
+    public AudioClip screamClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class FloorFall : MonoBehaviour
         if (isFall)
         {
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(fallClip);
+            this.gameObject.GetComponent<AudioSource>().PlayOneShot(screamClip);
         }
     }
 
