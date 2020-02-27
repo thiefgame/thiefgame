@@ -8,14 +8,7 @@ public class GoalUI : MonoBehaviour
 {
     [SerializeField] GameObject GoalButton;
     [SerializeField] GameObject continueButton;
-    Button button;
-   
-    void Start()
-    {
-        button =continueButton.GetComponent<Button>();
-        //ボタンが選択された状態になる
-        button.Select();
-    }
+
     
     //プレイヤーがゴール地点に入ったとき
     void OnTriggerStay(Collider other)
@@ -23,13 +16,11 @@ public class GoalUI : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //クリックしたときゴールボタンを表示して時を止める（FixedUpdateメソッドのみ）
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetMouseButtonDown(0))
             {
                 GoalButton.SetActive(true);
-
-                button = continueButton.GetComponent<Button>();
-                //ボタンが選択された状態になる
-                button.Select();
+                //カーソルを表示させる
+                Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0f;
             }
         }
@@ -38,6 +29,8 @@ public class GoalUI : MonoBehaviour
     //コンティニューボタンを押したとき
     public void OnClickContinue()
     {
+        //カーソルを非表示にする
+        Cursor.lockState = CursorLockMode.Locked;
         //ポーズを解除してボタンを非表示
         GoalButton.SetActive(false);
         Time.timeScale = 1f;

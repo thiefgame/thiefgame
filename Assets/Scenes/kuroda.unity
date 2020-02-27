@@ -401,17 +401,17 @@ PrefabInstance:
     - target: {fileID: 2222231274972326860, guid: 4942b9558bb76314385357c01c6304ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6000004
+      value: -10.84
       objectReference: {fileID: 0}
     - target: {fileID: 2222231274972326860, guid: 4942b9558bb76314385357c01c6304ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 2222231274972326860, guid: 4942b9558bb76314385357c01c6304ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15
+      value: 14.66
       objectReference: {fileID: 0}
     - target: {fileID: 2222231274972326860, guid: 4942b9558bb76314385357c01c6304ad,
         type: 3}
@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &352047022
 Light:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &364823846
 Light:
   m_ObjectHideFlags: 0
@@ -1059,17 +1059,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605950593}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 79602835}
   m_Father: {fileID: 1170909005}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1.83}
   m_SizeDelta: {x: 150, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605950595
@@ -1251,6 +1251,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac, type: 3}
+--- !u!1 &779706201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7038016785037800843, guid: 9f0e3edbd0c0ddb468c9f8dbefa76fac,
+    type: 3}
+  m_PrefabInstance: {fileID: 636127066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1073327629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1369,7 @@ PrefabInstance:
     - target: {fileID: 4459688229709434867, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.266
+      value: 1.17
       objectReference: {fileID: 0}
     - target: {fileID: 4459688229709434867, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
@@ -1415,11 +1421,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreasureItem (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4459688229709434869, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459688229709434870, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459688229709434870, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459688229709434870, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459688229709434870, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4459688229709434871, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: ItemName
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 779706201}
     - target: {fileID: 4459688229709434871, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: value
@@ -1430,6 +1461,11 @@ PrefabInstance:
       propertyPath: tresureName
       value: "\u304A\u83D3\u5B50"
       objectReference: {fileID: 0}
+    - target: {fileID: 4459688229709434871, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: TreasureItemCanvas
+      value: 
+      objectReference: {fileID: 605950593}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62dab1c39d6e288409438d5a11ea8db0, type: 3}
 --- !u!1 &1535234081
@@ -1448,7 +1484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1535234082
 Light:
   m_ObjectHideFlags: 0

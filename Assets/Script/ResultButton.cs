@@ -26,8 +26,6 @@ public class ResultButton : MonoBehaviour
         }
     }
 
-
-
     public void OnClickTitle()
     {
         SceneManager.LoadScene("Title");
