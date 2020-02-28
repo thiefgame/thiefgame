@@ -16,7 +16,7 @@ public class FloorFall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isFall)
+        if (isFall) 
         {
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(fallClip);
         }
