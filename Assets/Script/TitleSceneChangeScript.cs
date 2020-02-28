@@ -7,8 +7,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class TitleSceneChangeScript : MonoBehaviour
 {
-    public void OnTitle()
+    public void OnClickTitle()
     {
+        Time.timeScale = 1f;
         // 「ButtonScene」を自分の読み込みたいscene名に変える
         SceneManager.LoadScene("Title");        
     }

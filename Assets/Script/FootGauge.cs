@@ -9,7 +9,7 @@ public class FootGauge : MonoBehaviour
     int a = 0;
     private float countup = 0.0f;
 
-    /*
+    
     void Update()
     {
         //クリックしたらFootsを表示する
@@ -25,13 +25,24 @@ public class FootGauge : MonoBehaviour
             enabled = false;
         }
     }
-    */
-
+    
+    /*
     void Update()
     {
         //時間をカウントする
         countup += Time.deltaTime;
+        if (countup >= 5f)
+        { 
+            Foots[a].SetActive(true);
+            a += 1;
+            countup = countup - 5;
+        }
+        if (a == 10)
+        {
+            enabled = false;
+        }
     }
+    */
 
     //GameOverMessageに値を渡す
     public int Gauge()
