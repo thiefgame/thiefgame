@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SoundGauge : MonoBehaviour
 {
     [SerializeField] Slider slider;
+    float gameOver = 0.0f;
 
     //BGM
     AudioSource audioSource;
@@ -23,17 +24,10 @@ public class SoundGauge : MonoBehaviour
         slider.value = 0.0f;
         
     }
-
     
-    void FixedUpdate()
+    void Update()
     {
-        //クリックするたびに物音ゲージが増える
-        if (Input.GetMouseButtonDown(0))
-        {
-            slider.value = slider.value + 0.1f;  
-        }
-
-        //条件処理
+        //ゲージが８割たまったら音楽再生
         if (slider.value >= 0.8f)
         {
             if (One)
@@ -44,5 +38,25 @@ public class SoundGauge : MonoBehaviour
                 One = false;
             }
         }
+        //ゲージがマックスになったら音楽停止
+        if (slider.value >= 1.0f)
+        {
+            audioSource.Stop();
+        }            
     }
+
+    //他クラスからaddSoundGaugeを受け取ってslider.valueに加算させる
+    void AddGauge(float addSoundGauge)
+    {
+        slider.value += addSoundGauge;
+        gameOver = slider.value;
+    }
+
+    //GameOverMessageクラスに変数gameOverを渡すため
+    public float Gauge()
+    {
+        return gameOver;
+    }
+
+
 }
