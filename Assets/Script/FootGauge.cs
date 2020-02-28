@@ -9,7 +9,8 @@ public class FootGauge : MonoBehaviour
     int a = 0;
     private float countup = 0.0f;
 
-    
+    //テスト用（クリックでゲージ上昇）
+    /*
     void Update()
     {
         //クリックしたらFootsを表示する
@@ -25,8 +26,9 @@ public class FootGauge : MonoBehaviour
             enabled = false;
         }
     }
+    */
     
-    /*
+    //時間経過でゲージ上昇
     void Update()
     {
         //時間をカウントする
@@ -42,7 +44,7 @@ public class FootGauge : MonoBehaviour
             enabled = false;
         }
     }
-    */
+    
 
     //GameOverMessageに値を渡す
     public int Gauge()
