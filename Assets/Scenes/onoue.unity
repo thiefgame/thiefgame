@@ -748,6 +748,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1937492307}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1112633747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 658411958062300303, guid: 4942b9558bb76314385357c01c6304ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 6605733217046410728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1149897825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1266,7 @@ MonoBehaviour:
   lookUpLimit: 40
   lookDownLimit: 30
   cameraDistance: 2
+  headLight: {fileID: 0}
 --- !u!1 &1367549555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1396,7 @@ MonoBehaviour:
   lookUpLimit: 40
   lookDownLimit: 30
   cameraDistance: 2
+  headLight: {fileID: 0}
 --- !u!4 &1433038594
 Transform:
   m_ObjectHideFlags: 0
@@ -3302,6 +3310,11 @@ PrefabInstance:
       propertyPath: lookPoint
       value: 
       objectReference: {fileID: 906675914}
+    - target: {fileID: 6605733216339556663, guid: 4942b9558bb76314385357c01c6304ad,
+        type: 3}
+      propertyPath: headLight
+      value: 
+      objectReference: {fileID: 1112633747}
     - target: {fileID: 6605733217946783694, guid: 4942b9558bb76314385357c01c6304ad,
         type: 3}
       propertyPath: m_LocalPosition.y
