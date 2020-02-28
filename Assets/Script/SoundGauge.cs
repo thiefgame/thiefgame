@@ -38,11 +38,11 @@ public class SoundGauge : MonoBehaviour
                 One = false;
             }
         }
-        //ゲージがマックスになったら音楽停止
-        if (slider.value >= 1.0f)
+        //GameOverがアクティブになったら音楽停止
+        if (GameObject.Find("GameOverObject").transform.Find("GameOver").gameObject.activeSelf)
         {
             audioSource.Stop();
-        }            
+        }
     }
 
     //他クラスからaddSoundGaugeを受け取ってslider.valueに加算させる
