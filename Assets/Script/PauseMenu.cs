@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameObject Node;
-    [SerializeField] GameObject Content;
-    [SerializeField] GameObject Ctext;
-    GameObject Obj;
-    GameObject textObj;
+    [SerializeField] GameObject Node;//取得したアイテム名と金額か書かれるオブジェクト
+    [SerializeField] GameObject Content;//アイテム取得一覧のベース
+    [SerializeField] GameObject Ctext;//Nodeに張り付いているテキスト
     [SerializeField] GameObject GetItemList;
     [SerializeField] GameObject ScroolBar1;
+    GameObject Obj;//生成されたNodeが代入されるオブジェクト
+    GameObject textObj;//生成されたctextが代入されるオブジェクト
     Button button;
-    public Vector3 scale;
+    public Vector3 scale;//インスペクターから変更できるスケール;
+    string ItemName;//アイテムの名前の変数
+    int ItemValue =0;//アイテムの値段の変数
 
-    string ItemName;
-    int ItemValue =100;
 
     void GetItemValue(int a)
     {
@@ -52,14 +52,12 @@ public class PauseMenu : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.Locked;
 
-
                 Time.timeScale = 1f;
 
                 GetItemList.SetActive(false);
             }
             else
-            {
-                
+            {               
                 Cursor.lockState = CursorLockMode.None;
 
                 Time.timeScale = 0f;

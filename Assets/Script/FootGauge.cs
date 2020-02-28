@@ -7,7 +7,10 @@ public class FootGauge : MonoBehaviour
 {
     public GameObject[] Foots;
     int a = 0;
-    
+    private float countup = 0.0f;
+
+    //テスト用（クリックでゲージ上昇）
+    /*
     void Update()
     {
         //クリックしたらFootsを表示する
@@ -23,6 +26,25 @@ public class FootGauge : MonoBehaviour
             enabled = false;
         }
     }
+    */
+    
+    //時間経過でゲージ上昇
+    void Update()
+    {
+        //時間をカウントする
+        countup += Time.deltaTime;
+        if (countup >= 5f)
+        { 
+            Foots[a].SetActive(true);
+            a += 1;
+            countup = countup - 5;
+        }
+        if (a == 10)
+        {
+            enabled = false;
+        }
+    }
+    
 
     //GameOverMessageに値を渡す
     public int Gauge()

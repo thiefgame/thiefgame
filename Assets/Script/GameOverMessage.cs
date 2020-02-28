@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverMessage : MonoBehaviour
 {
-    public FootGauge footGauge;
+    public SoundGauge SoundGauge;
+    public CountDownTimer CountDownTimer;
 
     void Start()
     {
@@ -20,9 +22,25 @@ public class GameOverMessage : MonoBehaviour
     void Update()
     {
         //FootGaugeから渡された値が条件と合えばMessageを表示
-        if (footGauge.Gauge()>=10)
+        if (SoundGauge.Gauge() == 1.0f || CountDownTimer.Gauge() == 1.0f)
         {
             GameObject.Find("GameOverObject").transform.Find("GameOver").gameObject.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    public void OnClickTitle()
+    {
+        //Time.timeScale = 1f;
+        // 「ButtonScene」を自分の読み込みたいscene名に変える
+        SceneManager.LoadScene("Title");
+    }
+
+    public void OnClickRetry()
+    {
+        //Time.timeScale = 1f;
+        // 「ButtonScene」を自分の読み込みたいscene名に変える
+        SceneManager.LoadScene("Main");
     }
 }
