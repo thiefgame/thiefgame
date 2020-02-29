@@ -4,19 +4,11 @@ using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour
 {
-
-    float gameOver = 0.0f;
-
-    //　トータル制限時間
-    private float totalTime;
-    //　制限時間（分）
-    [SerializeField]
-    private int minute;
-    //　制限時間（秒）
-    [SerializeField]
-    private float seconds;
-    //　前回Update時の秒数
-    private float oldSeconds;
+    float gameOver = 0.0f;    
+    private float totalTime;//　トータル制限時間    
+    [SerializeField]private int minute;//　制限時間（分）   
+    [SerializeField]private float seconds;//　制限時間（秒）
+    private float oldSeconds;//　前回Update時の秒数
     private Text timerText;
 
     void Start()
