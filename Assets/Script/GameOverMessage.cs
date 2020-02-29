@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMessage : MonoBehaviour
 {
-    public FootGauge footGauge;
+    public SoundGauge SoundGauge;
+    public CountDownTimer CountDownTimer;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class GameOverMessage : MonoBehaviour
     void Update()
     {
         //FootGaugeから渡された値が条件と合えばMessageを表示
-        if (footGauge.Gauge()>=10)
+        if (SoundGauge.Gauge() == 1.0f || CountDownTimer.Gauge() == 1.0f)
         {
             GameObject.Find("GameOverObject").transform.Find("GameOver").gameObject.SetActive(true);
 
