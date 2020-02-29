@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SoundGauge : MonoBehaviour
 {
+    [SerializeField] Animator UnityChan;
+    [SerializeField] Rigidbody Character;
     [SerializeField] Slider slider;
     float gameOver = 0.0f;
 
@@ -27,6 +29,8 @@ public class SoundGauge : MonoBehaviour
     
     void Update()
     {
+
+
         //ゲージが８割たまったら音楽再生
         if (slider.value >= 0.8f)
         {
@@ -39,9 +43,24 @@ public class SoundGauge : MonoBehaviour
             }
         }
         //GameOverがアクティブになったら音楽停止
-        if (GameObject.Find("GameOverObject").transform.Find("GameOver").gameObject.activeSelf)
+        if (GameObject.Find("GameOverObject").transform.Find("GameOver").gameObject.activeSelf || slider.value <= 0.8f)
         {
             audioSource.Stop();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (UnityChan.GetCurrentAnimatorStateInfo(0).IsName("Crouch") || UnityChan.GetCurrentAnimatorStateInfo(0).IsName("CrouchWalk") || UnityChan.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            //ゲージが０以上の時ゲージが回復する
+            if (slider.value > 0)
+            {
+                slider.value -= 0.0005f;
+            }
+        }else if (UnityChan.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            slider.value += 0.005f;
         }
     }
 

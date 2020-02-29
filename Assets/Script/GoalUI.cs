@@ -8,13 +8,16 @@ public class GoalUI : MonoBehaviour
 {
     [SerializeField] GameObject GoalButton;//ゴールボタンをアタッチ
     [SerializeField] GameObject continueButton;//コンティニューボタンをアタッチ
+    [SerializeField] GameObject GoalSignCanvas;//アイテム取得サインのキャンバス
 
-    
     //プレイヤーがゴール地点に入ったとき
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+            //アイテム取得サイン表示
+            GoalSignCanvas.SetActive(true);
+
             //クリックしたときゴールボタンを表示して時を止める（FixedUpdateメソッドのみ）
             if (Input.GetMouseButtonDown(0))
             {
@@ -26,8 +29,17 @@ public class GoalUI : MonoBehaviour
         }
     }
 
-    //コンティニューボタンを押したとき
-    public void OnClickContinue()
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            //アイテム取得サインを非表示
+            GoalSignCanvas.SetActive(false);
+        }
+    }
+
+        //コンティニューボタンを押したとき
+        public void OnClickContinue()
     {
         //カーソルを非表示にする
         Cursor.lockState = CursorLockMode.Locked;
