@@ -8016,6 +8016,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreasureItem
       objectReference: {fileID: 0}
+    - target: {fileID: 4906705803166089908, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4906705803166089909, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4906705803166089909, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: isGlobal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4906705803166089909, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4906705803166089914, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: ItemName
@@ -8030,6 +8050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: tresureName
       value: "\u53CD\u7269\u8CEA"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4906705803166089915, guid: 62dab1c39d6e288409438d5a11ea8db0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62dab1c39d6e288409438d5a11ea8db0, type: 3}
