@@ -29,6 +29,7 @@ public class GoalUI : MonoBehaviour
         }
     }
 
+    //プレイヤーがゴールから離れた時
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
