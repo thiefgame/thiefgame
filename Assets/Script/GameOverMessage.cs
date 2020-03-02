@@ -22,7 +22,7 @@ public class GameOverMessage : MonoBehaviour
     void Update()
     {
         //FootGaugeから渡された値が条件と合えばMessageを表示
-        if (SoundGauge.Gauge() == 1.0f || CountDownTimer.Gauge() == 1.0f)
+        if (SoundGauge.Gauge() >= 1.0f || CountDownTimer.Gauge() == 1.0f)
         {
             GameObject.Find("GameOverObject").transform.Find("GameOver").gameObject.SetActive(true);
 
