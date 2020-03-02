@@ -3,7 +3,9 @@ guid: 9119d28e751d0204caf784f1303ebc64
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fallClip: {instanceID: 0}
+  - screamClip: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -4,36 +4,20 @@ using UnityEngine;
 
 public class FloorFall : MonoBehaviour
 {
-    bool isFall;
-
     public AudioClip fallClip;
     public AudioClip screamClip;
-    // Start is called before the first frame update
-    void Start()
-    {
-        isFall = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isFall) 
-        {
-            this.gameObject.GetComponent<AudioSource>().PlayOneShot(fallClip);
-            this.gameObject.GetComponent<AudioSource>().PlayOneShot(screamClip);
-        }
-    }
+    private float addSoundGauge = 0.5f;//渡すサウンド値
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
-            isFall = true;
+            this.gameObject.GetComponent<AudioSource>().PlayOneShot(screamClip);
+            this.gameObject.GetComponent<AudioSource>().PlayOneShot(fallClip);
+            //メソッドが走るたびにSoundGaugeオブジェクトのAddGaugeメソッドにサウンド値が渡される
+            GameObject soundGaugeGo = GameObject.Find("SoundGauge");
+            soundGaugeGo.SendMessage("AddGauge", addSoundGauge);
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        isFall = false;
-    }
-}
+ }
