@@ -6,22 +6,11 @@ public class KeyController : MonoBehaviour
 {
     bool isNear;
     Animator animator;
-    //private GameObject goldKeyIcon;
     private GameObject silverKeyIcon;
     [SerializeField] GameObject PopUpPanel;//PopUpMessageのパネル
     [SerializeField] GameObject silver_key;
     string PopUpText;
 
-    private void Awake()
-    {
-        //goldKeyIcon = GameObject.Find("GoldKeyIcon");
-        
-        
-        //goldKeyIcon = GameObject.Find("GoldKeyIcon");
-        
-        //goldKeyIcon.SetActive(false);
-    }
-    // Start is called before the first frame update
     void Start()
     {
         isNear = false;
@@ -37,6 +26,7 @@ public class KeyController : MonoBehaviour
     {
         if (isNear && Input.GetMouseButtonDown(0))
         {
+
             //PopUpPanekをアクティブに
             PopUpPanel.SetActive(true);
 
@@ -54,6 +44,8 @@ public class KeyController : MonoBehaviour
                 goldKeyIcon.SetActive(true);            
                 
             }*/
+
+
             if(this.gameObject.name == "silver_key_searchArea")
             {
                 silverKeyIcon.SetActive(true);
@@ -70,7 +62,7 @@ public class KeyController : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && Input.GetKeyDown("e"))
+        if (other.tag == "Player" && Input.GetMouseButtonDown(0))
         {
             other.GetComponent<Animator>().SetTrigger("Steal");
         }
