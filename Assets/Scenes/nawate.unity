@@ -2719,6 +2719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &225823706
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5092,6 +5093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &470782301
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5389,6 +5391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &487182850
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5880,6 +5883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &523816718
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8860,6 +8864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &804215704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10146,6 +10151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &918284686
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10983,6 +10989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &988438892
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12800,6 +12807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &1170592783
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13303,6 +13311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &1241350726
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15266,6 +15275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &1493774361
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17023,6 +17033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &1671861593
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17592,6 +17603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallClip: {fileID: 8300000, guid: d1bd597d1ee67614ea03ba24442d0ab6, type: 3}
   screamClip: {fileID: 8300000, guid: f52d0e1f73741354f97eb57b89d888f4, type: 3}
+  UnderPlane: {fileID: 0}
 --- !u!82 &1692760198
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22332,7 +22344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4002404486804397025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22795,7 +22807,7 @@ PrefabInstance:
     - target: {fileID: 8575279815702970843, guid: f31401bccb2c318429f98cbe29c88d2b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f31401bccb2c318429f98cbe29c88d2b, type: 3}
