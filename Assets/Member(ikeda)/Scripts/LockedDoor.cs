@@ -33,12 +33,12 @@ public class LockedDoor : MonoBehaviour
             if (animator.GetBool("Open"))
             {
                 //開いたときの音の再生
-                gameObject.GetComponent<AudioSource>().PlayOneShot(openClip);
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(openClip);
             }
             if (!animator.GetBool("Open"))
             {
                 //閉めたときの音の再生
-                gameObject.GetComponent<AudioSource>().PlayOneShot(closeClip);
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(closeClip);
             }
         } 
         /*else if(Input.GetKeyDown("e") && isNear && GameObject.Find("silver_key").activeSelf == true && whichOne == 2)
@@ -55,10 +55,10 @@ public class LockedDoor : MonoBehaviour
                 gameObject.GetComponent<AudioSource>().PlayOneShot(closeClip);
             }
         }*/
-        else
+        else if(Input.GetKeyDown("e") && isNear)
         {
             //カギを持っていないときのおとの再生
-            gameObject.GetComponent<AudioSource>().PlayOneShot(lockedClip);
+            this.gameObject.GetComponent<AudioSource>().PlayOneShot(lockedClip);
         }
 
     }

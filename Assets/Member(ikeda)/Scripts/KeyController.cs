@@ -13,25 +13,29 @@ public class KeyController : MonoBehaviour
     {
         //goldKeyIcon = GameObject.Find("GoldKeyIcon");
         
-        silverKeyIcon = GameObject.Find("SilverKeyIcon");
+        
         //goldKeyIcon = GameObject.Find("GoldKeyIcon");
-        silverKeyIcon.SetActive(false);
+        
         //goldKeyIcon.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
     {
         isNear = false;
+        silverKeyIcon = GameObject.Find("SilverKeyIcon");
+        silverKeyIcon.SetActive(false);
     }
+
     // Update is called once per frame
     void Update()
+        //カギを入手するときの動作
     {
         if (isNear && Input.GetKeyDown("e"))
         {
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
             /*if (this.gameObject.name == "gold_key_searchArea")
             {
-                goldKeyIcon.SetActive(true);
+                goldKeyIcon.SetActive(true);            
                 
             }*/
             if(this.gameObject.name == "silver_key_searchArea")

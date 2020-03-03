@@ -26,13 +26,13 @@ public class DoorManager : MonoBehaviour
             animator.SetBool("Open", !animator.GetBool("Open"));
             if (animator.GetBool("Open"))
             {
-                gameObject.GetComponent<AudioSource>().PlayOneShot(openclip);
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(openclip);
                 //
                 //if (other.TryGetComponent<Animator>(out Animator anim)) { anim.SetTrigger("Steal"); }
             }
             else
             {
-                gameObject.GetComponent<AudioSource>().PlayOneShot(closeclip);
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(closeclip);
                 //if (other.TryGetComponent<Animator>(out Animator anim)) { anim.SetTrigger("Steal"); }
             }
         }
