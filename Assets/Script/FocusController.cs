@@ -70,6 +70,7 @@ public class FocusController : MonoBehaviour
             {
                 mainCamera.transform.position += (mainCamera.transform.forward.normalized * 0.1f);
                 Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, Mathf.Infinity, 5);
+                if(Vector3.Distance(toggle.transform.position,mainCamera.transform.position) <= 0.1f) { break; }
             }
             //hit.collider.gameObject.
         }

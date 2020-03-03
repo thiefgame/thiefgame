@@ -58,9 +58,6 @@ public class SoundGauge : MonoBehaviour
             {
                 slider.value -= 0.0005f;
             }
-        }else if (UnityChan.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
-        {
-            slider.value += 0.005f;
         }
     }
 
