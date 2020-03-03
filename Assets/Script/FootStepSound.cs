@@ -11,7 +11,7 @@ public class FootStepSound : MonoBehaviour
     [SerializeField] AudioClip jumpedClip;
     //[SerializeField] bool randomizePitch = true;
     //[SerializeField] float pitchRange = 0.1f;
-    private float addSoundGauge = 0.1f;//渡すサウンド値
+    private float addSoundGauge = 0.01f;//渡すサウンド値
 
     protected AudioSource source;
 

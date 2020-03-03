@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GoldKey : MonoBehaviour
 {
-{
     bool isNear;
     Animator animator;
     //private GameObject goldKeyIcon;
