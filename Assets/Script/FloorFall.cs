@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FloorFall : MonoBehaviour
 {
-    public AudioClip fallClip;
-    public AudioClip screamClip;
-    private float addSoundGauge = 0.5f;//渡すサウンド値
+    [SerializeField] AudioClip fallClip;
+    [SerializeField] AudioClip screamClip;
+    [SerializeField] GameObject UnderPlane;
+    private float addSoundGauge = 0.3f;//渡すサウンド値
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +18,17 @@ public class FloorFall : MonoBehaviour
             //メソッドが走るたびにSoundGaugeオブジェクトのAddGaugeメソッドにサウンド値が渡される
             GameObject soundGaugeGo = GameObject.Find("SoundGauge");
             soundGaugeGo.SendMessage("AddGauge", addSoundGauge);
+
+            Destroy(UnderPlane);
+            StartCoroutine("FloorDestroy");
+            
         }
+    }
+
+    private IEnumerator FloorDestroy()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(this.gameObject);
     }
 
  }
