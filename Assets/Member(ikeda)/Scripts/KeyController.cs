@@ -8,6 +8,9 @@ public class KeyController : MonoBehaviour
     Animator animator;
     //private GameObject goldKeyIcon;
     private GameObject silverKeyIcon;
+    [SerializeField] GameObject PopUpPanel;//PopUpMessageのパネル
+    [SerializeField] GameObject silver_key;
+    string PopUpText;
 
     private void Awake()
     {
@@ -24,15 +27,28 @@ public class KeyController : MonoBehaviour
         isNear = false;
         silverKeyIcon = GameObject.Find("SilverKeyIcon");
         silverKeyIcon.SetActive(false);
+        
+
     }
 
     // Update is called once per frame
     void Update()
         //カギを入手するときの動作
     {
-        if (isNear && Input.GetKeyDown("e"))
+        if (isNear && Input.GetMouseButtonDown(0))
         {
-            Destroy(this.gameObject);
+            //PopUpPanekをアクティブに
+            PopUpPanel.SetActive(true);
+
+            //このアイテムをとったときに表示するテキスト
+            PopUpText = "宝物庫のカギを手に入れた!!";
+
+            //オブジェクトScoreを取得してvalueの値を送る
+            GameObject PopUpMessageGo = GameObject.Find("ChangePopUpText");
+            PopUpMessageGo.SendMessage("OnPopUpMessage", PopUpText);
+
+            Destroy(silver_key);
+            Debug.Log("destroy完了");
             /*if (this.gameObject.name == "gold_key_searchArea")
             {
                 goldKeyIcon.SetActive(true);            
