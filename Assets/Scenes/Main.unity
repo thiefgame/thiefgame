@@ -1767,37 +1767,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104675937}
   m_Mesh: {fileID: 4300000, guid: bce99ade65d5fee418c6e9541397fb3e, type: 3}
---- !u!1 &107975348
+
+--- !u!1 &119386154 stripped
 GameObject:
+  m_CorrespondingSourceObject: {fileID: 3550886850086464424, guid: 67a5c9ecaeda289479a7aa88bf4d76c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1511545228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &119386158
+MonoBehaviour:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 107975349}
-  m_Layer: 0
-  m_Name: J_R_HeadRibbon_00
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &107975349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107975348}
-  m_LocalRotation: {x: -0.12178339, y: -0.20300739, z: 0.30530372, w: 0.92235917}
-  m_LocalPosition: {x: -0.18103224, y: 0.08604571, z: -0.04305515}
-  m_LocalScale: {x: 1.0000005, y: 1.0000007, z: 1.0000005}
-  m_Children:
-  - {fileID: 719381576}
-  m_Father: {fileID: 399774184}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+  m_GameObject: {fileID: 119386154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: ddfcbf659fbb1e9479507a15f634c740, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+
 --- !u!1001 &120295769
 PrefabInstance:
   m_ObjectHideFlags: 0

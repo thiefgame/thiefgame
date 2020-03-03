@@ -3034,6 +3034,7 @@ MonoBehaviour:
   closeClip: {fileID: 8300000, guid: ddc3a336a5ab3ba46ba79cc148afc6b2, type: 3}
   lockedClip: {fileID: 8300000, guid: 694e387c0493f264cb931fd692131293, type: 3}
   animator: {fileID: 0}
+  PopUpPanel: {fileID: 0}
 --- !u!4 &205809192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 588773894664296302, guid: 65ebe3b262777a64fa8a3841545e0681,
@@ -16164,7 +16165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209320031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -25.94, y: 7.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1057847257}
@@ -22184,6 +22185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8af004531e9ed44ba2b3697916d4768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PopUpPanel: {fileID: 1626292547}
 --- !u!95 &1724360158
 Animator:
   serializedVersion: 3
