@@ -2858,12 +2858,12 @@ PrefabInstance:
     - target: {fileID: 4906705803166089914, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: value
-      value: 999999999
+      value: 7000
       objectReference: {fileID: 0}
     - target: {fileID: 4906705803166089914, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: tresureName
-      value: "\u53CD\u7269\u8CEA"
+      value: "\u6642\u8A08"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62dab1c39d6e288409438d5a11ea8db0, type: 3}
@@ -2948,12 +2948,12 @@ PrefabInstance:
     - target: {fileID: 4906705803166089914, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: value
-      value: 7000
+      value: 999999999
       objectReference: {fileID: 0}
     - target: {fileID: 4906705803166089914, guid: 62dab1c39d6e288409438d5a11ea8db0,
         type: 3}
       propertyPath: tresureName
-      value: "\u6642\u8A08"
+      value: "\u53CD\u7269\u8CEA"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62dab1c39d6e288409438d5a11ea8db0, type: 3}
