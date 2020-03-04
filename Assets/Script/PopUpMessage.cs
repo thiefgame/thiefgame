@@ -19,7 +19,7 @@ public class PopUpMessage : MonoBehaviour
 
     private IEnumerator HiddenText()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(5.0f);
 
         PopUpPanel.SetActive(false);
     }
