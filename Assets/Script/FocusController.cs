@@ -85,17 +85,17 @@ public class FocusController : MonoBehaviour
     {
         //Vector3でX,Y方向の回転の度合いを定義
         Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * rotateSpeed, Input.GetAxis("Mouse Y") * rotateSpeed, 0);
-        
+
         //視点とカメラを回転させる(横)
         lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.up, angle.x);
         mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.up, angle.x);
 
         //視点とカメラを回転させる(縦)
         if (mainCamera.transform.eulerAngles.x <= lookDownLimit || mainCamera.transform.eulerAngles.x >= 360 - lookUpLimit)
-        {
+        {//画角が指定の範囲内にある場合
             lookPoint.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
             //ヘッドライトの縦方向をカメラと同期
-            headLight.transform.rotation = Quaternion.Euler(new Vector3(headLight.transform.rotation.eulerAngles.x -angle.y, headLight.transform.rotation.eulerAngles.y, headLight.transform.rotation.eulerAngles.z));
+            headLight.transform.rotation = Quaternion.Euler(new Vector3(Mathf.Clamp(headLight.transform.rotation.eulerAngles.x - angle.y, firstLightRotX - lookDownLimit, firstLightRotX + lookUpLimit), headLight.transform.rotation.eulerAngles.y, headLight.transform.rotation.eulerAngles.z));
             mainCamera.transform.RotateAround(toggle.transform.position, mainCamera.transform.right, -angle.y);
         }
         else
