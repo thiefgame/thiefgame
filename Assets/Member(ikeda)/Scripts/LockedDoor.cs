@@ -13,6 +13,8 @@ public class LockedDoor : MonoBehaviour
     bool isNear;
     //金のカギか銀のカギか判定させるフラグ 1ならゴールドドア 2ならシルバードア
     int whichOne;
+    [SerializeField] GameObject PopUpPanel;//PopUpMessageのパネル
+    string PopUpText;
 
 
 
@@ -59,6 +61,15 @@ public class LockedDoor : MonoBehaviour
         {
             //カギを持っていないときのおとの再生
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(lockedClip);
+            //アイテム名が書かれた画像を表示
+            PopUpPanel.SetActive(true);
+
+            //このアイテムをとったときに表示するテキスト
+            PopUpText = "開けるには宝物庫の鍵が必要だ";
+
+            //オブジェクトScoreを取得してvalueの値を送る
+            GameObject PopUpMessageGo = GameObject.Find("ChangePopUpText");
+            PopUpMessageGo.SendMessage("OnPopUpMessage", PopUpText);
         }
 
     }
